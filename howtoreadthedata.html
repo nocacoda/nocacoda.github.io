@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+            <img src="https://nocacoda.info/images/logo_nocacoda_bw.svg"
+                    alt="NoCaCoDa logo" style="height: 45px"></img></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions_for_contributors.html">
+                <div class="menu-button">Instructions for&nbsp;contributors</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>How to read the data</h2>
+
+<p>Each full entry in the database contains a stimulus sentence from the <a href="https://nocacoda.info/questionnaire.html">questionnaire</a> translated into a target language and annotated for a number of parameters. The dataset containing all full entries in a single spreadsheet is available <a href="https://nocacoda.info/data_in_one_spreadsheet.html">here</a>. The annotations used in the database come from three sets:</p>
+
+<ol>
+<li>Semantic parameters associated with individual stimulus sentences.</li>
+<li>Parameters associated with individual translations into target languages.</li>
+<li>Parameters associated with language-specific nominal causal markers.</li>
+</ol>
+
+<p>Apart from this, the database also features generalized data pertaining to the level of individual languages. These data are visible in the aggregate table <a href="https://nocacoda.info/langlist.html">here</a>. The four sets of annotations are explained below.</p>
+
+<h3>Inclusion criteria</h3>
+
+<p>The translations obtained are considered a part of the database only if they meet the inclusion criteria. Nonetheless, the translations that failed to meet the inclusion criteria are visible to database users (often this serves as a way to explain the nature of the difficulties encountered). Sentences that failed to meet the inclusion criteria are not tagged for their causal marker (see ‘Parameters associated with individual translations into target languages’ below) and do not participate in any calculations based on the data. </p>
+
+<p>The inclusion criteria are as follows:</p>
+
+<ol>
+<li>The causing event is syntactically represented by a noun phrase. The minimal necessary condition is the compatibility of its head with unquestionably nominal marking; thus, English gerunds can be considered “syntactically nouns” (<em>because of doing</em>), while English infinitives cannot (* <em>because of (to) do</em>).</li>
+<li>This noun phrase has approximately the same meaning as the English/Russian noun phrase in the stimulus sentence.  </li>
+<li>This noun phrase is not a syntactic subject (i.e., sentences like ‘The tears made the handkerchief wet’ are not included).</li>
+</ol>
+
+<h3>Semantic parameters associated with individual stimulus sentences</h3>
+
+<p>Stimulus sentences are identified by numeric codes (“stimulus_no”: 1, 2, … 54). The 54 stimulus sentences were preannotated for five semantic parameters:</p>
+
+<ul>
+<li>Semantic type: ontological vs. epistemic vs. logical vs. illocutive.</li>
+<li>Objective vs. subjective causes.</li>
+<li>Direct vs. indirect causes.</li>
+<li>Internal vs. external causes.</li>
+<li>Taxis: simultaneous vs. anterior.</li>
+</ul>
+
+<p>These parameters are explained in the <a href="https://nocacoda.info/questionnaire.html">Questionnaire</a> section. Their values ascribed to the stimulus sentences are inherited by the entries in the final dataset. </p>
+
+<h3>Parameters associated with individual translations into target languages</h3>
+
+<p>Each entry in the dataset contains the following fields:</p>
+
+<ul>
+<li><p>“language_no”<br />
+This is a conventional number (1, 2, …) associated with a given language in the database (for example, 1 is English, 2 is Japanese, etc.). 
+This field is mainly used for linking purposes.</p></li>
+<li><p>“language_name”<br />
+“English”, “Japanese”, etc.</p></li>
+<li><p>“stimulus_no”<br />
+A numeric code of the stimulus sentence (1, 2, … 54), primarily used for linking purposes.</p></li>
+<li><p>“status”<br />
+This parameter has two values: “main” vs. “alternate”. For each combination of the stimulus sentence and target language exactly one entry is tagged as “main”. All other entries are tagged as “alternate” (their number is in principle unlimited). The choice of the “main” translation is driven by the criteria of naturalness (when possible, operationalized in terms of frequency) and translational accuracy.</p></li>
+<li><p>“causal_marker”<br />
+This is the main dependent variable in the database. In this field, language-specific markers are given in the form of their main allomorph, with no diacritics and in lower case; grammatical labels are given in upper case. E.g., the marker in the German sentence <em>Der Lehrer lobte den Schüler für seine Kleidung</em> ‘The teacher commended the student for his suit’ is tagged as “fur_ACC”. In case the translation obtained does not meet the inclusion criteria (see ‘Inclusion criteria’above) this field is filled in as “n.a.”.</p></li>
+<li><p>“sentence”<br />
+The sentence in the target language with morpheme boundaries.</p></li>
+<li><p>“glosses_en”<br />
+English glosses</p></li>
+<li><p>“back_translation_en”<br />
+Back translation of the target-language sentence to English. This is useful if the meaning of the sentence obtained deviates from the questionnaire stimulus.</p></li>
+<li><p>“glosses_ru”<br />
+Russian glosses.</p></li>
+<li><p>“back_translation_ru”<br />
+Back translation of the target-language sentence to Russian. This is useful if the meaning of the sentence obtained deviates from the questionnaire stimulus.</p></li>
+<li><p>“comments”<br />
+This field contains additional information that is deemed important for the database user. If the sentence obtained fails to meet the inclusion criteria this field contains an explanation.</p></li>
+<li><p>“comments_informal”<br />
+Any additional comments intended for internal use only (possibly in Russian).</p></li>
+</ul>
+
+<h3>Parameters associated with language-specific nominal causal markers</h3>
+
+<p>Each language-specific causal marker was tagged for its morphosyntactic type, degree of explicitness, and polysemy/syncretism. These values are inherited by the full database entries. The following fields belong to this set of annotations:</p>
+
+<ul>
+<li><p>“language_no”: see above</p></li>
+<li><p>“language_name”: see above</p></li>
+<li><p>“causal_marker”: see above</p></li>
+<li><p>“morphosyntactic_type”<br />
+The following values are possible: “adposition” (possibly in combination with a specific case) and “affix” (typically a case marker, but also any other kind of affix).</p></li>
+<li><p>“explicitness”<br />
+The rationale behind this parameter is that some translations do meet the acceptance criteria for the inclusion in the dataset, but the relevant nominal markers cannot explicitly convey causal meaning <em>sensu stricto</em>. This parameter can take three values:</p>
+
+<ul>
+<li>no (= contextual causal marker) — causal interpretation, if present, is only an implicature, e.g., Fr. <em>sous</em> ‘under’ in <em>La branche s’est cassée sous le poids de l’oiseau</em>, lit. ‘The branch broke under the weight of the bird’ (note that the causal meaning can be cancelled in a wider context, along the lines of <em>Quoique la branche se soit cassée sous le poids de l’oiseau, c’était en fait parce qu'elle était desséchée et déjà morte</em> ‘Although the branch broke under the weight of the bird, it was in fact because it was dried out and already dead’).</li>
+<li>yes (= explicit causal marker) — the marker has, at least in part of its usages, an explicitly causal meaning that cannot be cancelled, e.g., Eng. <em>from</em> in <em>The man died from electric shock</em>. Oblique markers that signal non-agentive effectors / natural forces (e.g., the Instrumental case in Rus. <em>Derev-o povali-l-o vetr-om</em> [tree(N)-ACC.SG bring.down(PFV)-PST-N.SG wind(M)-INS.SG], ‘The tree fell due to the wind’) are considered explicit.</li>
+<li>uncertain — the explicitness cannot be satisfactorily estimated for the time being.</li>
+</ul></li>
+</ul>
+
+<p><strong>Fields related to non-causal meanings of markers</strong></p>
+
+<p>Many nominal markers attested in the dataset can convey non-causal (e.g., spatial) meanings as well. For explicit causal markers, it can result in syncretism, while contextual causal markers have other meaning(s) “by definition”. The most salient and context-independent meanings are classified into five macro-types, labelled “goal”, “instrument”, “source”, “location”, and “object”. Each macro-type comprises one or several meanings, the name of the macro-type being the name of one of its meanings. These macro-types are not mutually exclusive: a certain marker can display more than one syncretic non-causal meaning. There is also an additional sixth type “other”, a residual category that covers relatively rare non-causal meanings. Each marker is tagged with “yes” or “no” for each of the macro-types; “yes” is chosen if the marker in question is productively used with at least one of the macro-type meanings. A marker with six “no”s is a dedicated causal marker.</p>
+
+<ul>
+<li><p>“goal”<br />
+Endpoint of motion, e.g., Eng. <em>to</em> in <em>He went to the village</em>. This macrotype also includes the following meanings:</p>
+
+<ul>
+<li>Recipient — participant who receives something as a result of the transition, e.g., Eng. <em>to</em> in <em>He gave the book to Mary</em>.</li>
+<li>Beneficiary — participant who is (dis)advantaged as a result of the action, e.g., Eng. <em>for</em> in <em>He bought a present for Mary</em>.</li>
+<li>Purpose (non-spatial Goal)  — aim or intention of an action, e.g., Eng. <em>for</em> in <em>He is saving money for a trip abroad</em>.</li>
+</ul></li>
+<li><p>“instrument”<br />
+Entity that is used by the agent to perform the action but remains unaffected, e.g., Eng. <em>with</em> in <em>He writes with a pen</em>. This macrotype also includes the following meanings:</p>
+
+<ul>
+<li>Means — entity that is indirectly used to perform the action, e.g., Eng. <em>through</em> in <em>He gained support through bribes</em>.</li>
+<li>Path — location along/over/through which the motion takes place, e.g., Eng. <em>through</em> in <em>He walked through the forest</em>.</li>
+<li>Pattern — entity in conformity with which the situation unfolds, e.g., Eng. <em>under</em> in <em>He was fined under the new law</em>.</li>
+<li>Comitative — co-participant of the action, e.g., Eng. <em>with</em> in <em>He came with Mary</em>.</li>
+</ul></li>
+<li><p>“location”<br />
+Stative location relative to some other participant or entity (landmark), e.g., Eng. <em>in</em> in <em>He stays in bed</em>.</p></li>
+<li><p>“object”<br />
+P-participant in the basic transitive construction, e.g., Eng. object pronoun form <em>me</em> in <em>He hit me</em>. This macrotype also includes the following meaning:</p>
+
+<ul>
+<li>Matter — participant or entity under consideration or discussion, e.g., Eng. <em>about</em> in <em>They talked about the trip</em>.</li>
+</ul></li>
+<li><p>“source”<br />
+Starting point of the motion, e.g., Eng. <em>from</em> in <em>He moved from there last year</em>. This macrotype also includes the following meanings:</p>
+
+<ul>
+<li>Temporal starting point — entity designated as temporal reference for the situation, e.g., Eng. <em>since</em> in <em>He has been waiting since morning</em>.</li>
+<li>Anterior reference — entity designated as temporally anterior to the situation, e.g., Eng. <em>after</em> in <em>He sold the car after the accident</em>.</li>
+</ul></li>
+<li><p>“other”<br />
+Non-causal meanings not covered under any other macro-type. The “yes” value is only chosen in cases where the marker in question has distinct non-causal meanings none of which falls under the macro-types above; for dedicated causal markers, this parameter should have “no”; if at least one other macro-type is applicable, this parameter is marked as “n.a.”.</p></li>
+<li><p>“other_details”<br />
+Explication of the non-causal meanings defined in “other” (given in prose: no preset values).</p></li>
+</ul>
+
+<h3>Parameters associated with individual languages</h3>
+
+<p>Several parameters are identified at the level of individual languages. Some of them were predefined, while others summarize the results obtained with the help of the database. The spreadsheet with the values of these parameters can be seen <a href="https://nocacoda.info/langlist.html">here</a>. The following parameters are used:</p>
+
+<ul>
+<li><p>“Language”</p></li>
+<li><p>“Glottocode”</p></li>
+<li><p>“Macroarea”<br />
+We use the following partition of the world into macroareas: Australia; East and Southeast Asia; Europe; Mesoamerica; North Africa; North America; North and Central Asia; Papunesia; South America; South Asia; Sub-Saharan Africa; West Asia and the Caucasus.</p></li>
+<li><p>“Family (WALS)”<br />
+Genealogical affiliation of the language according to the two-level classification given in WALS, where “Family” is the top level (e.g., Indo-European).</p></li>
+<li><p>“Genus (WALS)”<br />
+Genealogical affiliation of the language according to the two-level classification given in WALS, where “Genus” is the bottom level (e.g., Baltic).</p></li>
+<li><p>“Latitude”<br />
+Language coordinates typically follow WALS or Glottolog.</p></li>
+<li><p>“Longitude”<br />
+Language coordinates typically follow WALS or Glottolog.</p></li>
+<li><p>“Contact language”<br />
+The language of the questionnaire that was used for eliciting the data, mainly English or Russian.</p></li>
+<li><p>“Main”<br />
+The total number of translations obtained that met the inclusion criteria and were tagged as “main”.</p></li>
+<li><p>“Alternate”<br />
+The total number of translations obtained that met the inclusion criteria and were tagged as “alternate”.</p></li>
+<li><p>“Explicit”<br />
+The total number of translations obtained that met the inclusion criteria and were simultaneously tagged as “main” and “explicit”.</p></li>
+<li><p>“Implicit”<br />
+The total number of translations obtained that met the inclusion criteria and were simultaneously tagged as “main” and “implicit”.</p></li>
+<li><p>“Goal”, “Instrument”, “Location”, “Object”, “Source”, “Other”, “Dedicated”<br />
+These seven fields summarize the types of syncretism observed in the language’s dataset. By default, these fields display the total number of the target-language sentences with causal markers displaying the given syncretism type. Only translations that met the inclusion criteria and were simultaneously tagged as “main” and “explicit” were taken into consideration. In case a marker used in a given translation simultaneously displays several types of syncretism, its score of “1” is divided by the number of its syncretism patterns (for example, a sentence with the English preposition <em>by</em> contributes 0.5 as its “instrument” score and 0.5 as its “location” score).</p></li>
+<li><p>“markers”<br />
+The total number of different explicit causal markers observed in the language’s dataset.</p></li>
+</ul>
+
+    </div>
+    
+    
+</body>
+
+</html>

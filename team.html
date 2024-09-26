@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+            <img src="https://nocacoda.info/images/logo_nocacoda_bw.svg"
+                    alt="NoCaCoDa logo" style="height: 45px"></img></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions_for_contributors.html">
+                <div class="menu-button">Instructions for&nbsp;contributors</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>The team</h2>
+
+<h3>Core members</h3>
+
+<p><img src="https://nocacoda.github.io/images/Logvinova.jpg" alt="N.L.'s photo" title="N.L.'s photo" /></p>
+
+<p><a href="https://iling.spb.ru/persons/logvinova-natalya-nikolaevna">Natalia Logvinova</a> (<a href="https://independent.academia.edu/NLogvinova">Academia.edu profile</a>, <a href="https://scholar.google.com/citations?user=5gh5RK8AAAAJ&hl=de">GoogleScholar profile</a>): Junior research fellow, Laboratory for the Typological Study of Languages, Institute for Linguistic Studies, Russian Academy of Sciences; Postgraduate Student, the School of Linguistic, National Research University Higher School of Economics</p>
+
+<p><img src="https://nocacoda.github.io/images/Say.jpg" alt="S.S.'s photo" title="S.S.'s photo" /></p>
+
+<p><a href="https://www.uni-potsdam.de/de/slavische-linguistik/team/dr-sergey-say">Sergey Say</a> (<a href="https://iling-spb.academia.edu/SergeySay">Academia.edu profile</a>): PhD, Head of the Laboratory for the Typological Study of Languages, Institute for Linguistic Studies, Russian Academy of Sciences.</p>
+
+<p><img src="https://nocacoda.github.io/images/Zabelina.jpg" alt="E.Z.'s photo" title="E.Z.'s photo" /></p>
+
+<p><a href="https://iling.spb.ru/persons/zabelina-elizaveta-aleksandrovna">Elizabeta Zabelina</a> (<a href="https://iling-spb.academia.edu/ElizavetaZabelina">Academia.edu profile</a>): Junior research fellow, Laboratory for the Typological Study of Languages, Institute for Linguistic Studies, Russian Academy of Sciences</p>
+
+<p><img src="https://nocacoda.github.io/images/Zaika.jpg" alt="N.Z.'s photo" title="N.Z.'s photo" /></p>
+
+<p><a href="https://iling.spb.ru/persons/zabelina-elizaveta-aleksandrovna">Natalia Zaika</a> (<a href="https://iling-spb.academia.edu/%D0%97%D0%B0%D0%B8%D0%BA%D0%B0%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F">Academia.edu profile</a>): Senior research fellow, Laboratory for the Typological Study of Languages, Institute for Linguistic Studies, Russian Academy of Sciences</p>
+
+<h3>Technical team</h3>
+
+<p><img src="https://dnikolaev.com/images/mitya.jpg" alt="D.N.'s photo" title="D.N.'s photo" /></p>
+
+<p><a href="https://dnikolaev.com">Dmitry Nikolaev</a> (<a href="https://su-se.academia.edu/DmitryNikolaev">Academia.edu profile</a>, <a href="https://scholar.google.com/citations?user=Myl8EpkAAAAJ&hl=en">GoogleScholar profile</a>): PhD, postdoc at the Institute for Natural Language Processing, University of Stuttgart</p>
+
+<h3>Language contributors</h3>
+
+<ul>
+<li>Daria Alfimova: <a href="https://nocacoda.github.io/langpages/German.html">German</a></li>
+<li>Maria Cheremisinova, Elizaveta Zabelina: <a href="https://nocacoda.github.io/langpages/UdmurtSouth.html">Udmurt (South)</a></li>
+<li>Anna Daugavet: <a href="https://nocacoda.github.io/langpages/Latvian.html">Latvian</a></li>
+<li>Sergey Dmitrenko: <a href="https://nocacoda.github.io/langpages/Khmer.html">Khmer</a>, Thai</li>
+<li>Anastasia Dmitrieva: <a href="https://nocacoda.github.io/langpages/KhantyNorthern.html">Khanty (Northern)</a></li>
+<li>Emma Geniušienė: <a href="https://nocacoda.github.io/langpages/Lithuanian.html">Lithuanian</a></li>
+<li>Irene Gorbunova, Eva Poliakova, Polina Smetkina: <a href="https://nocacoda.github.io/langpages/Karelian.html">Karelian</a></li>
+<li>Irene Gorbunova, Grigorij Sibiljof: Khwarshi</li>
+<li>Maria Gvozdkova: <a href="https://nocacoda.github.io/langpages/Albanian.html">Albanian</a></li>
+<li>Elena Kordi, Elizaveta Zabelina: <a href="https://nocacoda.github.io/langpages/French.html">French</a></li>
+<li>Artemii Kuznetsov: <a href="https://nocacoda.github.io/langpages/Japanese.html">Japanese</a></li>
+<li>Olga Kuznetsova: <a href="https://nocacoda.github.io/langpages/Guro.html">Guro</a>, <a href="https://nocacoda.github.io/langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></li>
+<li>Natalia Logvinova: <a href="https://nocacoda.github.io/langpages/English.html">English</a>, <a href="https://nocacoda.github.io/langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a>, <a href="https://nocacoda.github.io/langpages/Kumyk.html">Kumyk</a></li>
+<li>Ramazan Mamedshakhov: <a href="https://nocacoda.github.io/langpages/Arabic.html">Arabic</a>, <a href="https://nocacoda.github.io/langpages/Lezgian.html">Lezgian</a></li>
+<li>Diana Mikaelian, Maksim Fedotov: <a href="https://nocacoda.github.io/langpages/ArmenianEastern.html">Armenian (Eastern)</a></li>
+<li>Chiara Naccarato: <a href="https://nocacoda.github.io/langpages/Italian.html">Italian</a></li>
+<li>Ivan Netkachev: <a href="https://nocacoda.github.io/langpages/IndonesianStandard.html">Indonesian (Standard)</a></li>
+<li>Anastasia Panova: <a href="https://nocacoda.github.io/langpages/EskimoCentralSiberianYupik.html">Yupik (Siberian)</a></li>
+<li>Tatiana Repnina: <a href="https://nocacoda.github.io/langpages/Catalan.html">Catalan</a>, <a href="https://nocacoda.github.io/langpages/Spanish.html">Spanish</a> </li>
+<li>Roman Ronko: <a href="https://nocacoda.github.io/langpages/Shughni.html">Shughni</a></li>
+<li>Daria Ryzhova, Miljka Stanković: <a href="https://nocacoda.github.io/langpages/Serbian.html">Serbian</a></li>
+<li>Sergey Say: <a href="https://nocacoda.github.io/langpages/Russian.html">Russian</a>, <a href="https://nocacoda.github.io/langpages/Slovenian.html">Slovenian</a>, <a href="https://nocacoda.github.io/langpages/Polish.html">Polish</a></li>
+<li>Sophia Shumilova: <a href="https://nocacoda.github.io/langpages/Erzya.html">Erzya</a></li>
+<li>Varvara Shuvalova: <a href="https://nocacoda.github.io/langpages/Swedish.html">Swedish</a></li>
+<li>Svetlana Toldova: Moskha</li>
+<li>Alevtina Utkina: <a href="https://nocacoda.github.io/langpages/ChineseMandarin.html">Chinese (Mandarin)</a></li>
+<li>Elizaveta Zabelina: <a href="https://nocacoda.github.io/langpages/Telugu.html">Telugu</a>, <a href="https://nocacoda.github.io/langpages/Urdu.html">Urdu</a></li>
+<li>Natalia Zaika: <a href="https://nocacoda.github.io/langpages/Belarusian.html">Belarusian</a>, <a href="https://nocacoda.github.io/langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a>, <a href="https://nocacoda.github.io/langpages/Ukrainian.html">Ukrainian</a>, <a href="https://nocacoda.github.io/langpages/Basque.html">Basque</a></li>
+<li>Anastasia Zhuk: <a href="https://nocacoda.github.io/langpages/Kazakh.html">Kazakh</a>, Uzbek</li>
+</ul>
+
+    </div>
+    
+    
+</body>
+
+</html>

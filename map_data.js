@@ -179,6 +179,11 @@ const mapData = {
     "latitude": 34.0,
     "longitude": 110.0
   },
+  "Moksha": {
+    "phylum": "Uralic",
+    "latitude": 54.0,
+    "longitude": 44.0
+  },
   "Khwarshi": {
     "phylum": "Nakh-Daghestanian",
     "latitude": 42.25,

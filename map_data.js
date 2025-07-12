@@ -25,7 +25,7 @@ const mapData = {
     "longitude": 2.0
   },
   "AssyrianNeo-Aramaic": {
-    "phylum": "Afroasiatic",
+    "phylum": "Afro-Asiatic",
     "latitude": 44.85,
     "longitude": 40.85
   },
@@ -60,7 +60,7 @@ const mapData = {
     "longitude": 71.5
   },
   "Arabic": {
-    "phylum": "Afroasiatic",
+    "phylum": "Afro-Asiatic",
     "latitude": 25.0,
     "longitude": 42.0
   },

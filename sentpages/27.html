@@ -1,0 +1,3692 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+                <img src="https://nocacoda.github.io/images/logo_nocacoda_bw.svg" alt="NoCaCoDa logo"
+                    style="height: 45px"></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions.html">
+                <div class="menu-button">Instructions</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>Sentence no. 27&nbsp;&nbsp;<a href="../sentences.html">⮭</a></h2>
+<p><strong>English:</strong> <Thanks to> [his dog], the man had a successful hunt.</p>
+<p><strong>Type:</strong> ontological</p>
+
+    <script>
+    function toggleAlternateVisibility() {
+        elements = document.getElementsByClassName("status-alternate");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = elements[i].style.display == 'inline-block' ? 'none' : 'inline-block';
+        }
+    }
+    </script>
+    <div>
+    <input type="checkbox" id="alternate_translations" name="alternate" onchange="toggleAlternateVisibility()"><label for="alternate_translations"> Show alternate translations</label>
+    </div>
+    <br/><br/>
+    
+<div class="language-section">
+<h3><a href="../langpages/Adyghe.html">Adyghe</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>jahatarce</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-he</td>
+            <td class="example-word">jə-hatər-č̣ʼe</td>
+            <td class="example-word">λ̣ə-r</td>
+            <td class="example-word">deʁʷ-ew</td>
+            <td class="example-word">šeḳʷa-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-in-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>good-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man successfully went hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>jaswakece</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-he</td>
+            <td class="example-word">jə-ṣ̂ʷaʁe-č̣ʼe</td>
+            <td class="example-word">λ̣ə-r</td>
+            <td class="example-word">deʁʷ-ew</td>
+            <td class="example-word">šeḳʷa-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-benefit-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>good-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man successfully went hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Albanian.html">Albanian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>fale DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Falë</td>
+            <td class="example-word">qen-it</td>
+            <td class="example-word">të</td>
+            <td class="example-word">tij,</td>
+            <td class="example-word">burr-i</td>
+            <td class="example-word">pat-i</td>
+            <td class="example-word">një</td>
+            <td class="example-word">gjueti</td>
+            <td class="example-word">të</td>
+            <td class="example-word">suksessh-me.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">gen</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>have-</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Arabic.html">Arabic</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>bi fadgli GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">wuffiq-a</td>
+            <td class="example-word">r-radʒul-u</td>
+            <td class="example-word">fii</td>
+            <td class="example-word">sʕ-sʕajd-i</td>
+            <td class="example-word">bi=fadʕl-i</td>
+            <td class="example-word">kalb-i=hi</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>give_luck.</span>
+                <span class="gloss">pass</span>
+                <span>.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-hunt(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>with=advantage(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>=3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man had a successful hunt because of his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ArmenianEastern.html">Armenian (Eastern)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>isnorhiv DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">I1=šnorhiv2</td>
+            <td class="example-word">šan</td>
+            <td class="example-word">tġamard-ə</td>
+            <td class="example-word">haĵoġ</td>
+            <td class="example-word">ors-i=ē</td>
+            <td class="example-word">gnac‘-el.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks_to1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">gen</span>
+                <span>/</span>
+                <span class="gloss">dat</span>
+                <span>=be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">ptcp</span>
+                <span>_</span>
+                <span class="gloss">pf</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Thanks to his dog, the man successfully went on a hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>but</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">úrza</td>
+            <td class="example-word">gə́ns</td>
+            <td class="example-word">xə́š-lə</td>
+            <td class="example-word">+séda</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">but</td>
+            <td class="example-word">cálba</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>go.</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">ls</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man had a successful hunt because of his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>avə +raba basima ka</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">úrza</td>
+            <td class="example-word">gə́ns</td>
+            <td class="example-word">xə́š-lə</td>
+            <td class="example-word">+séda</td>
+            <td class="example-word">ávə-Ø</td>
+            <td class="example-word">+rába</td>
+            <td class="example-word">basíma</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">cálba</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>go.</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">ls</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>-</span>
+                <span class="gloss">ss</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>many</span>
+            </td>
+            <td class="example-gloss">
+                <span>pleasant.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man had a successful hunt, thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Basque.html">Basque</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>DAT esker</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Txakurr-a-ri</td>
+            <td class="example-word">esker,</td>
+            <td class="example-word">ehiza</td>
+            <td class="example-word">on-a</td>
+            <td class="example-word">iza-n</td>
+            <td class="example-word">zuen</td>
+            <td class="example-word">gizon-a-k.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt</span>
+            </td>
+            <td class="example-gloss">
+                <span>good-</span>
+                <span class="gloss">sg</span>
+                <span>[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">erg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Belarusian.html">Belarusian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>dzjakujucy DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">mužčyn-a</td>
+            <td class="example-word">ŭdala</td>
+            <td class="example-word">sxadzi-ŭ</td>
+            <td class="example-word">na</td>
+            <td class="example-word">paljavann-e</td>
+            <td class="example-word">dzjakujučy</td>
+            <td class="example-word">sabak-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man had a successful hunt because of his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Catalan.html">Catalan</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>gracies a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">L'</td>
+            <td class="example-word">home</td>
+            <td class="example-word">ha</td>
+            <td class="example-word">caç-at</td>
+            <td class="example-word">molt</td>
+            <td class="example-word">gràci-es</td>
+            <td class="example-word">al</td>
+            <td class="example-word">seu</td>
+            <td class="example-word">gos.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>a_lot</span>
+            </td>
+            <td class="example-gloss">
+                <span>grace(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>to.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man had a successful hunt thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChineseMandarin.html">Chinese (Mandarin)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">yóuyú</td>
+            <td class="example-word">tā-de</td>
+            <td class="example-word">gǒu-de</td>
+            <td class="example-word">bāngzhù,</td>
+            <td class="example-word">zhègè</td>
+            <td class="example-word">nánrén</td>
+            <td class="example-word">shòuliè</td>
+            <td class="example-word">chénggōng</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>due_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>he-</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>help</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man hunted successfully thanks to his dog.</td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the noun phrase used in the nominal causal construction semantically deviates from the one intended by the stimulus sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>pergi</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">arʑɨn</td>
+            <td class="example-word">oxota-ja</td>
+            <td class="example-word">jɨdə</td>
+            <td class="example-word">bergi</td>
+            <td class="example-word">lajək</td>
+            <td class="example-word">kaj-za</td>
+            <td class="example-word">gilʲ-ʨ-ë</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">obj</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">post</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">cv</span>
+                <span>_</span>
+                <span class="gloss">sim</span>
+            </td>
+            <td class="example-gloss">
+                <span>come-</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man had a successful hunt because of his dog</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/English.html">English</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>thanks to</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Erzya.html">Erzya</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>maro GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">cёra-sʲ</td>
+            <td class="example-word">vadrja-sto</td>
+            <td class="example-word">jaka-sʲ</td>
+            <td class="example-word">oxota-v</td>
+            <td class="example-word">kiska-nʲ</td>
+            <td class="example-word">pomoga-mo-stʲ</td>
+            <td class="example-word">maro</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>good-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>walk-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">all</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>help-</span>
+                <span class="gloss">nmlz</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man successfully went hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Filipino.html">Filipino</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>dahil sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Dáhil</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">áso,</td>
+            <td class="example-word">nag-tagumpáy</td>
+            <td class="example-word">ang=laláki</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">pangangáso=niyá.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">av</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>-victory</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nom</span>
+                <span>=man</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt=3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Thanks to the dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/French.html">French</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>grace a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">L’</td>
+            <td class="example-word">homme</td>
+            <td class="example-word">a</td>
+            <td class="example-word">réussi</td>
+            <td class="example-word">à</td>
+            <td class="example-word">la</td>
+            <td class="example-word">chasse</td>
+            <td class="example-word">grâce</td>
+            <td class="example-word">à</td>
+            <td class="example-word">son</td>
+            <td class="example-word">chien.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>achieve.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">prf</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">The man had a successful hunt thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/German.html">German</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>wegen GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Wegen</td>
+            <td class="example-word">des</td>
+            <td class="example-word">Hund-es</td>
+            <td class="example-word">hat-te</td>
+            <td class="example-word">der</td>
+            <td class="example-word">Mann</td>
+            <td class="example-word">ein-e</td>
+            <td class="example-word">erfolgreich-e</td>
+            <td class="example-word">Jagd.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>have-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">indf</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>wegen DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Wegen</td>
+            <td class="example-word">dem</td>
+            <td class="example-word">Hund</td>
+            <td class="example-word">hat-te</td>
+            <td class="example-word">der</td>
+            <td class="example-word">Mann</td>
+            <td class="example-word">ein-e</td>
+            <td class="example-word">erfolgreich-e</td>
+            <td class="example-word">Jagd.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>have-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">indf</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Guro.html">Guro</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>wii</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gɔnɛ</td>
+            <td class="example-word">zàn</td>
+            <td class="example-word">le</td>
+            <td class="example-word">dɔ̌n</td>
+            <td class="example-word">lɛ́-sɔɔ́</td>
+            <td class="example-word">à</td>
+            <td class="example-word">le</td>
+            <td class="example-word">bɛnɛ</td>
+            <td class="example-word">wiǐ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>male</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">resp</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting</span>
+            </td>
+            <td class="example-gloss">
+                <span>reach\</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nsbj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man had a successful hunt because of his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/IndonesianStandard.html">Indonesian (Standard)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>karena</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">karena</td>
+            <td class="example-word">anjing-nya,</td>
+            <td class="example-word">dia</td>
+            <td class="example-word">berhasil</td>
+            <td class="example-word">dalam</td>
+            <td class="example-word">berburu</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>he</span>
+            </td>
+            <td class="example-gloss">
+                <span>succeed</span>
+            </td>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Thanks to his dog, he is successful in hunting.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Italian.html">Italian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>grazie a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">la</td>
+            <td class="example-word">caccia</td>
+            <td class="example-word">dell’</td>
+            <td class="example-word">uomo</td>
+            <td class="example-word">è</td>
+            <td class="example-word">stata</td>
+            <td class="example-word">proficua</td>
+            <td class="example-word">grazie</td>
+            <td class="example-word">al</td>
+            <td class="example-word">cane</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting</span>
+            </td>
+            <td class="example-gloss">
+                <span>of.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>fruitful.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The hunt of the man was successful thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>per merito di</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">la</td>
+            <td class="example-word">caccia</td>
+            <td class="example-word">dell’</td>
+            <td class="example-word">uomo</td>
+            <td class="example-word">è</td>
+            <td class="example-word">stata</td>
+            <td class="example-word">proficua</td>
+            <td class="example-word">per</td>
+            <td class="example-word">merito</td>
+            <td class="example-word">del</td>
+            <td class="example-word">cane</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting</span>
+            </td>
+            <td class="example-gloss">
+                <span>of.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>fruitful.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>merit</span>
+            </td>
+            <td class="example-gloss">
+                <span>of.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">The hunt of the man was successful thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Japanese.html">Japanese</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>GEN okage-de</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Inu-no</td>
+            <td class="example-word">okage-de</td>
+            <td class="example-word">otoko-wa</td>
+            <td class="example-word">kari-ni</td>
+            <td class="example-word">seikō-sh-ita.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>success-</span>
+                <span class="gloss">vblz</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Karelian.html">Karelian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>tahte GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">mužik</td>
+            <td class="example-word">udačno</td>
+            <td class="example-word">käve-i</td>
+            <td class="example-word">ohota-le</td>
+            <td class="example-word">koira-n</td>
+            <td class="example-word">tähte</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">all</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man successfully went hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>EL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">häin</td>
+            <td class="example-word">tä-s</td>
+            <td class="example-word">koira-s</td>
+            <td class="example-word">hüvä</td>
+            <td class="example-word">om</td>
+            <td class="example-word">käv‘e-nu</td>
+            <td class="example-word">ohota-le</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">el</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">el</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">act</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">all</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">He was good at hunting thanks to this dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kazakh.html">Kazakh</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>GEN arqasinda</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">er1</td>
+            <td class="example-word">adam2</td>
+            <td class="example-word">iyt-tiŋ</td>
+            <td class="example-word">arqasïnda</td>
+            <td class="example-word">aŋšwlïq-qa</td>
+            <td class="example-word">sät-ti</td>
+            <td class="example-word">bar-ïp</td>
+            <td class="example-word">kel-di</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man1,2.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>due</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>luck-</span>
+                <span class="gloss">adj</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">cvb</span>
+            </td>
+            <td class="example-gloss">
+                <span>come-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man was lucky in hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/KhantyNorthern.html">Khanty (Northern)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>pata</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">iki</td>
+            <td class="example-word">jăma</td>
+            <td class="example-word">wɵntijəλ-əs</td>
+            <td class="example-word">amp-əλ</td>
+            <td class="example-word">păta</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>well</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man hunted successfully thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khmer.html">Khmer</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">prɒmaɲ2</td>
+            <td class="example-word">cap</td>
+            <td class="example-word">sat</td>
+            <td class="example-word">baːn</td>
+            <td class="example-word">craən</td>
+            <td class="example-word">daoj3</td>
+            <td class="example-word">saː4</td>
+            <td class="example-word">chkae</td>
+            <td class="example-word">rɔbɒh kɔat svak</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunter1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>catch</span>
+            </td>
+            <td class="example-gloss">
+                <span>animal</span>
+            </td>
+            <td class="example-gloss">
+                <span>receive</span>
+            </td>
+            <td class="example-gloss">
+                <span>a_lot</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">daoj</span>
+                <span>_</span>
+                <span class="gloss">sa</span>
+                <span>ː3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The hunter caught many animals due to his prosperous dog.</td>
+        </tr>
+        <tr>
+            <td colspan="10" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>daoj sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">prɒmaɲ2</td>
+            <td class="example-word">cap</td>
+            <td class="example-word">sat</td>
+            <td class="example-word">baːn</td>
+            <td class="example-word">craən</td>
+            <td class="example-word">daoj3</td>
+            <td class="example-word">saː4</td>
+            <td class="example-word">chkae rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunter1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>catch</span>
+            </td>
+            <td class="example-gloss">
+                <span>animal</span>
+            </td>
+            <td class="example-gloss">
+                <span>receive</span>
+            </td>
+            <td class="example-gloss">
+                <span>a_lot</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">daoj</span>
+                <span>_</span>
+                <span class="gloss">sa</span>
+                <span>ː3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The hunter caught many animals due to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>prueh tae</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">prɒmaɲ2</td>
+            <td class="example-word">cap</td>
+            <td class="example-word">sat</td>
+            <td class="example-word">baːn</td>
+            <td class="example-word">craən</td>
+            <td class="example-word">prʊəh3</td>
+            <td class="example-word">tae4</td>
+            <td class="example-word">chkae rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunter1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>catch</span>
+            </td>
+            <td class="example-gloss">
+                <span>animal</span>
+            </td>
+            <td class="example-gloss">
+                <span>receive</span>
+            </td>
+            <td class="example-gloss">
+                <span>a_lot</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+                <span>_</span>
+                <span class="gloss">tae</span>
+                <span>3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The hunter caught many animals due to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">prɒmaɲ2</td>
+            <td class="example-word">cap</td>
+            <td class="example-word">sat</td>
+            <td class="example-word">baːn</td>
+            <td class="example-word">craən</td>
+            <td class="example-word">prʊəh</td>
+            <td class="example-word">chkae</td>
+            <td class="example-word">rɔbɒh</td>
+            <td class="example-word">kɔat svak</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunter1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>catch</span>
+            </td>
+            <td class="example-gloss">
+                <span>animal</span>
+            </td>
+            <td class="example-gloss">
+                <span>receive</span>
+            </td>
+            <td class="example-gloss">
+                <span>a_lot</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The hunter caught many animals due to his prosperous dog.</td>
+        </tr>
+        <tr>
+            <td colspan="10" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khwarshi.html">Khwarshi</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>SUPER sabalana</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">žikʷa</td>
+            <td class="example-word">k’wet’</td>
+            <td class="example-word">ak’-ana</td>
+            <td class="example-word">ohota-ƛ’o</td>
+            <td class="example-word">ʁoj-ƛ’o</td>
+            <td class="example-word">sabałana</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>brace</span>
+            </td>
+            <td class="example-gloss">
+                <span>fine</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">evd</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">super</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">super</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man went hunting well thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">žikʷa</td>
+            <td class="example-word">beła</td>
+            <td class="example-word">b-iha-χ-χa</td>
+            <td class="example-word">ʁoj-lo</td>
+            <td class="example-word">kumak-ƛ’o-jža</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>deer</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">iii</span>
+                <span>-die-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">aor</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+                <span>2</span>
+            </td>
+            <td class="example-gloss">
+                <span>help-</span>
+                <span class="gloss">super</span>
+                <span>-</span>
+                <span class="gloss">trns</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">A man killed a deer with the help of a dog.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the noun phrase used in the nominal causal construction semantically deviates from the one intended by the stimulus sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kumyk.html">Kumyk</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>uchun</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">er1</td>
+            <td class="example-word">giši2</td>
+            <td class="example-word">oχt-ʁa</td>
+            <td class="example-word">ariw</td>
+            <td class="example-word">bar-d-y</td>
+            <td class="example-word">it učun</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>beautiful</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man successfully went hunting because of the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Latvian.html">Latvian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>GEN del</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vīriet-im</td>
+            <td class="example-word">veic-ā-s</td>
+            <td class="example-word">medīb-ās</td>
+            <td class="example-word">suņa</td>
+            <td class="example-word">dēļ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.successful.</span>
+                <span class="gloss">pst</span>
+                <span>-3-</span>
+                <span class="gloss">rfl</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog.</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because.of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man hunted successfully because of his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>pateicoties DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vīriet-im</td>
+            <td class="example-word">veic-ā-s</td>
+            <td class="example-word">medīb-ās</td>
+            <td class="example-word">pateic-otie-s</td>
+            <td class="example-word">sunim.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful.</span>
+                <span class="gloss">pst</span>
+                <span>-3-</span>
+                <span class="gloss">rfl</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>thank-</span>
+                <span class="gloss">cnv</span>
+                <span>-</span>
+                <span class="gloss">rfl</span>
+                <span> dog.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man hunted successfully thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lezgian.html">Lezgian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ɣyrtʃ-ez</td>
+            <td class="example-word">fe-ji</td>
+            <td class="example-word">ʔitimd-in</td>
+            <td class="example-word">kar-∅</td>
+            <td class="example-word">kitsʔ-iz</td>
+            <td class="example-word">kilig-na</td>
+            <td class="example-word">tykʔe-na</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunt.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">aop</span>
+            </td>
+            <td class="example-gloss">
+                <span>man.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>bussines.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>watch-</span>
+                <span class="gloss">aoc</span>
+            </td>
+            <td class="example-gloss">
+                <span>work_out-</span>
+                <span class="gloss">aor</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Thanks to his dog, the man who went hunting, was successful.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lithuanian.html">Lithuanian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>GEN deka</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Žmog-us</td>
+            <td class="example-word">sėkmingai</td>
+            <td class="example-word">pamedžioj-o</td>
+            <td class="example-word">šun-s</td>
+            <td class="example-word">dėka.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>person(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man hunted successfully thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Moksha.html">Moksha</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>inksa GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">al'ɛ-s'</td>
+            <td class="example-word">udačnaj</td>
+            <td class="example-word">jaka-s'</td>
+            <td class="example-word">oxota-s</td>
+            <td class="example-word">pin'ə-nc</td>
+            <td class="example-word">inksə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+            <td class="example-gloss">
+                <span>walk-</span>
+                <span class="gloss">pst</span>
+                <span>.3[</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">ill</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man went hunting successfully because of the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>takket vare</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mann-en</td>
+            <td class="example-word">hadde</td>
+            <td class="example-word">hell</td>
+            <td class="example-word">med</td>
+            <td class="example-word">jakt-a</td>
+            <td class="example-word">takke-t</td>
+            <td class="example-word">være</td>
+            <td class="example-word">hund-en.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>luck</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thank-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>be</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man was lucky in hunting thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Polish.html">Polish</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>dzieki DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Dzięki</td>
+            <td class="example-word">swemu</td>
+            <td class="example-word">ps-u,</td>
+            <td class="example-word">polowan-ie</td>
+            <td class="example-word">mu</td>
+            <td class="example-word">się</td>
+            <td class="example-word">uda-ł-o.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>(he.</span>
+                <span class="gloss">dat</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_successful-</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Thanks to his dog, he had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Russian.html">Russian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>blagodarja DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Blagodarja</td>
+            <td class="example-word">sobak-e</td>
+            <td class="example-word">mužčin-a</td>
+            <td class="example-word">otlično</td>
+            <td class="example-word">pooxoti-l-sja.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>very.well</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">refl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Serbian.html">Serbian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>zahvaljujuchi DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">muškarc-u</td>
+            <td class="example-word">je</td>
+            <td class="example-word">uspe-o</td>
+            <td class="example-word">lov</td>
+            <td class="example-word">zahvaljujući</td>
+            <td class="example-word">ps-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>succeed-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man had a successful hunt thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>zbog GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">muškarc-u</td>
+            <td class="example-word">je</td>
+            <td class="example-word">uspe-o</td>
+            <td class="example-word">lov</td>
+            <td class="example-word">zbog</td>
+            <td class="example-word">ps-a</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>succeed-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man had a successful hunt thanks to his dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Shughni.html">Shughni</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>blagodara</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Yu</td>
+            <td class="example-word">čorik</td>
+            <td class="example-word">udačnayā</td>
+            <td class="example-word">tar</td>
+            <td class="example-word">oxota</td>
+            <td class="example-word">su-t</td>
+            <td class="example-word">blagodar'a</td>
+            <td class="example-word">wi</td>
+            <td class="example-word">kud=ard.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+                <span>3.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">eq</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog=</span>
+                <span class="gloss">lat</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>az rui</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Yu</td>
+            <td class="example-word">čorik</td>
+            <td class="example-word">udačnayā</td>
+            <td class="example-word">tar</td>
+            <td class="example-word">oxota</td>
+            <td class="example-word">su-t</td>
+            <td class="example-word">az</td>
+            <td class="example-word">rui</td>
+            <td class="example-word">wi</td>
+            <td class="example-word">kud.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+                <span>3.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">eq</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">el</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">caus</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Slovenian.html">Slovenian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>zaradi GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Človek</td>
+            <td class="example-word">je</td>
+            <td class="example-word">zaradi</td>
+            <td class="example-word">svoj-ega</td>
+            <td class="example-word">ps-a</td>
+            <td class="example-word">ime-l</td>
+            <td class="example-word">dober</td>
+            <td class="example-word">lov.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because.of</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have(</span>
+                <span class="gloss">ipfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>good[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="27-opener">
+<h4>27</h4>
+<p>Status: alternate; causal marker: <em>zahvaljujoc DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Človek</td>
+            <td class="example-word">je</td>
+            <td class="example-word">imel</td>
+            <td class="example-word">zahvaljujoč</td>
+            <td class="example-word">svoj-emu</td>
+            <td class="example-word">ps-u</td>
+            <td class="example-word">dober</td>
+            <td class="example-word">lov.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have(</span>
+                <span class="gloss">ipfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks.to</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>good[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Spanish.html">Spanish</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>gracias a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gracias</td>
+            <td class="example-word">a</td>
+            <td class="example-word">su</td>
+            <td class="example-word">perro,</td>
+            <td class="example-word">el</td>
+            <td class="example-word">hombre</td>
+            <td class="example-word">tuvo</td>
+            <td class="example-word">una</td>
+            <td class="example-word">caza</td>
+            <td class="example-word">éxitos-a</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunting(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successful-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Swedish.html">Swedish</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>tack vare</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Jakt-en</td>
+            <td class="example-word">gick</td>
+            <td class="example-word">bra</td>
+            <td class="example-word">tack</td>
+            <td class="example-word">vare</td>
+            <td class="example-word">hund-en.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>hunting-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>go.</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>fine</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">subj</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The hunting went well thanks to the dog.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Telugu.html">Telugu</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>valla</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">atani</td>
+            <td class="example-word">kukka</td>
+            <td class="example-word">valla</td>
+            <td class="example-word">atani-ki</td>
+            <td class="example-word">maṁci</td>
+            <td class="example-word">vēṭa</td>
+            <td class="example-word">ayi-ṁdi.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>become.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nm</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Due to his dog, the man had a good hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/UdmurtSouth.html">Udmurt (South)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vorgoron</td>
+            <td class="example-word">pajda-jo</td>
+            <td class="example-word">vetl-i-z</td>
+            <td class="example-word">pə̑jšura-ny</td>
+            <td class="example-word">puny-jez</td>
+            <td class="example-word">jurtt-ysa.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>profit-</span>
+                <span class="gloss">attr</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+                <span>-3(</span>
+                <span class="gloss">sg</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>help-</span>
+                <span class="gloss">cvb</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Ukrainian.html">Ukrainian</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>zavdjaky DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Чоловік</td>
+            <td class="example-word">вдало</td>
+            <td class="example-word">зходи-в</td>
+            <td class="example-word">на</td>
+            <td class="example-word">полюванн-я</td>
+            <td class="example-word">завдяки</td>
+            <td class="example-word">собац-і.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>go-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Urdu.html">Urdu</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>ki bedaulat</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">us-ke</td>
+            <td class="example-word">kutt-e</td>
+            <td class="example-word">kī</td>
+            <td class="example-word">bedɔlat,</td>
+            <td class="example-word">ādmī</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">šikār</td>
+            <td class="example-word">acch-ā</td>
+            <td class="example-word">rah-ā.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that.</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>owing_to,</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dir</span>
+            </td>
+            <td class="example-gloss">
+                <span>hunt(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dir</span>
+            </td>
+            <td class="example-gloss">
+                <span>good-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dir</span>
+            </td>
+            <td class="example-gloss">
+                <span>stay.</span>
+                <span class="gloss">pfv</span>
+                <span>-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Thanks to his dog, the man had a successful hunt.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/YupikSiberian.html">Yupik (Siberian)</a></h3>
+<div class="example-block status-main" id="27-opener">
+<h4>27</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">juk</td>
+            <td class="example-word">pinitun</td>
+            <td class="example-word">qikmi-m</td>
+            <td class="example-word">muʁutə-st-aː</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man.</span>
+                <span class="gloss">abs</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>dog-</span>
+                <span class="gloss">rel</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>go_hunting-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">ind</span>
+                <span>.</span>
+                <span class="gloss">tr</span>
+                <span>+3</span>
+                <span class="gloss">sg</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">The dog helped the man hunt well.</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expected causal noun phrase is expressed as the grammatical subject.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+    </div>
+    
+    
+</body>
+
+</html>

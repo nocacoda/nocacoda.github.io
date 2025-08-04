@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+                <img src="https://nocacoda.github.io/images/logo_nocacoda_bw.svg" alt="NoCaCoDa logo"
+                    style="height: 45px"></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions.html">
+                <div class="menu-button">Instructions</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>Sentence no. 53&nbsp;&nbsp;<a href="../sentences.html">⮭</a></h2>
+<p><strong>English:</strong> Where is my sweater <?> [the cold].</p>
+<p><strong>Type:</strong> illocutive</p>
+
+    <script>
+    function toggleAlternateVisibility() {
+        elements = document.getElementsByClassName("status-alternate");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = elements[i].style.display == 'inline-block' ? 'none' : 'inline-block';
+        }
+    }
+    </script>
+    <div>
+    <input type="checkbox" id="alternate_translations" name="alternate" onchange="toggleAlternateVisibility()"><label for="alternate_translations"> Show alternate translations</label>
+    </div>
+    <br/><br/>
+    
+<div class="language-section">
+<h3><a href="../langpages/Adyghe.html">Adyghe</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word"/>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Albanian.html">Albanian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ku</td>
+            <td class="example-word">është</td>
+            <td class="example-word">pulovr-a</td>
+            <td class="example-word">ime</td>
+            <td class="example-word">se</td>
+            <td class="example-word">po</td>
+            <td class="example-word">bё-n</td>
+            <td class="example-word">ftohtё?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nom</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">comp</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prog</span>
+            </td>
+            <td class="example-gloss">
+                <span>do-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">Where is my sweater, because it is cold?</td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Arabic.html">Arabic</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ʔajna</td>
+            <td class="example-word">sitrat=ii</td>
+            <td class="example-word">sʕuufijj-at-u</td>
+            <td class="example-word">ʔal-dʒaww-u</td>
+            <td class="example-word">baarid-u-n</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>vest(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>=1</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-woollen-</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-weather(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+                <span>-</span>
+                <span class="gloss">indef</span>
+                <span> </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my woolen vest, the weather is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing and the caused events are not expressed in a single sentence. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ArmenianEastern.html">Armenian (Eastern)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Orteġ=ē</td>
+            <td class="example-word">sviter-s,</td>
+            <td class="example-word">c‘urt=ē?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where=be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">poss</span>
+                <span>_1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold=be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="example-translation">Where is my sweater, it’s cold?</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">cé=la</td>
+            <td class="example-word">+súdr-i</td>
+            <td class="example-word">kárt=əla</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where=3</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>shirt(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">p</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold(</span>
+                <span class="gloss">f</span>
+                <span>)=3</span>
+                <span class="gloss">f</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="example-translation">Where is my shirt? It is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because it is a biclausal construction with a dependent causal clause.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Basque.html">Basque</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>n.a.</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">n.a.</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Belarusian.html">Belarusian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word"/>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Catalan.html">Catalan</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">On</td>
+            <td class="example-word">és</td>
+            <td class="example-word">el</td>
+            <td class="example-word">meu</td>
+            <td class="example-word">jersei?</td>
+            <td class="example-word">Fa</td>
+            <td class="example-word">fred.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>jumper(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>?</span>
+            </td>
+            <td class="example-gloss">
+                <span>do.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater? It is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChineseMandarin.html">Chinese (Mandarin)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">wǒ</td>
+            <td class="example-word">zài</td>
+            <td class="example-word">lěng</td>
+            <td class="example-word">tiān</td>
+            <td class="example-word">chuān-de</td>
+            <td class="example-word">máoyī</td>
+            <td class="example-word">zài</td>
+            <td class="example-word">nǎ?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+            </td>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+            <td class="example-gloss">
+                <span>weather</span>
+            </td>
+            <td class="example-gloss">
+                <span>wear-</span>
+                <span class="gloss">adjm</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater</span>
+            </td>
+            <td class="example-gloss">
+                <span>be</span>
+            </td>
+            <td class="example-gloss">
+                <span>in where</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">I am cold, where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word"/>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/English.html">English</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word"/>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: The intended meaning cannot be expressed in a single sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Erzya.html">Erzya</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">koso</td>
+            <td class="example-word">monʲ</td>
+            <td class="example-word">svitra-m,</td>
+            <td class="example-word">seks</td>
+            <td class="example-word">što</td>
+            <td class="example-word">jakšamo</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>what</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Where is my sweater &lt;?&gt; [cold]?</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Filipino.html">Filipino</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Nasaán</td>
+            <td class="example-word">ang=panggináw=ko</td>
+            <td class="example-word">at</td>
+            <td class="example-word">malamíg?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nom</span>
+                <span>=sweater=1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>and</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">Where is my sweater, as it is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/French.html">French</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Où</td>
+            <td class="example-word">est</td>
+            <td class="example-word">mon</td>
+            <td class="example-word">pull</td>
+            <td class="example-word">?</td>
+            <td class="example-word">Il</td>
+            <td class="example-word">fait froid.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">m</span>
+                <span>)?</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>do.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater? It is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/German.html">German</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Wo</td>
+            <td class="example-word">ist</td>
+            <td class="example-word">mein</td>
+            <td class="example-word">Pullover</td>
+            <td class="example-word">gegen</td>
+            <td class="example-word">die</td>
+            <td class="example-word">Kälte? </td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>my.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>against</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater against the cold?</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a caused event adnominal dependent.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Guro.html">Guro</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">an</td>
+            <td class="example-word">le</td>
+            <td class="example-word">sɔ</td>
+            <td class="example-word">ká?</td>
+            <td class="example-word">Naa,</td>
+            <td class="example-word">dùnù</td>
+            <td class="example-word">à,</td>
+            <td class="example-word">à</td>
+            <td class="example-word">le</td>
+            <td class="example-word">wɩ́</td>
+            <td class="example-word">ma</td>
+            <td class="example-word">le</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>clothes</span>
+            </td>
+            <td class="example-gloss">
+                <span>where?</span>
+            </td>
+            <td class="example-gloss">
+                <span>so</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">cop</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nsbj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>affair</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">top</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">Where is my clothes? It is cold indeed.</td>
+        </tr>
+        <tr>
+            <td colspan="12" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing and the caused events are not expressed in a single sentence. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/IndonesianStandard.html">Indonesian (Standard)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">di</td>
+            <td class="example-word">mana</td>
+            <td class="example-word">sweater-ku?</td>
+            <td class="example-word">saya</td>
+            <td class="example-word">kedinginan</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">poss</span>
+                <span>.1</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my sweater? Because I am cold.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Italian.html">Italian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">dov’</td>
+            <td class="example-word">è</td>
+            <td class="example-word">il</td>
+            <td class="example-word">mio</td>
+            <td class="example-word">maglione</td>
+            <td class="example-word">pesante</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater</span>
+            </td>
+            <td class="example-gloss">
+                <span>thick.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Where is my thick sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Japanese.html">Japanese</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Samu-i</td>
+            <td class="example-word">kedo</td>
+            <td class="example-word">boku-no</td>
+            <td class="example-word">sēta-ga</td>
+            <td class="example-word">doko?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>cold-</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>but</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">It is cold, but where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Karelian.html">Karelian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kazakh.html">Kazakh</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">meniŋ</td>
+            <td class="example-word">žempir-im</td>
+            <td class="example-word">qayda?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">poss</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="example-translation">Where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/KhantyNorthern.html">Khanty (Northern)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khmer.html">Khmer</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">nɤw1</td>
+            <td class="example-word">ˀae2</td>
+            <td class="example-word">naː3</td>
+            <td class="example-word">ˀaːw4</td>
+            <td class="example-word">rɔŋiə5</td>
+            <td class="example-word">rɔbɒh</td>
+            <td class="example-word">khɲom prʊəh khɲom rɔŋiə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where1,2,3</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater4,5</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater, because I am cold?</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khwarshi.html">Khwarshi</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">na</td>
+            <td class="example-word">di-he</td>
+            <td class="example-word">sviter</td>
+            <td class="example-word">mada-ha</td>
+            <td class="example-word">l-ujc’a gołe</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where-1</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">ad</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater</span>
+            </td>
+            <td class="example-gloss">
+                <span>street-</span>
+                <span class="gloss">ad</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">iv</span>
+                <span>-freeze\</span>
+                <span class="gloss">aor</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my sweater? It's cold outside.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kumyk.html">Kumyk</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">qʼajda</td>
+            <td class="example-word">meni</td>
+            <td class="example-word">žilet-im</td>
+            <td class="example-word">maʁa</td>
+            <td class="example-word">suwuqʼ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>vest-</span>
+                <span class="gloss">p</span>
+                <span>_1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my sweater, am I cold.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Latvian.html">Latvian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Kur</td>
+            <td class="example-word">ir</td>
+            <td class="example-word">man-s</td>
+            <td class="example-word">svīter-is</td>
+            <td class="example-word">pret</td>
+            <td class="example-word">aukstum-u?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>my-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>against</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Where is my sweater against cold?</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the caused event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lezgian.html">Lezgian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">zi</td>
+            <td class="example-word">perem-∅</td>
+            <td class="example-word">hina wa</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>shirt.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>where.be </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="example-translation">Where is my shirt?</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the caused event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lithuanian.html">Lithuanian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Man</td>
+            <td class="example-word">šalta,</td>
+            <td class="example-word">kur</td>
+            <td class="example-word">mano</td>
+            <td class="example-word">megztin-is?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold-</span>
+                <span class="gloss">adv</span>
+                <span>,</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">I am cold, where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Moksha.html">Moksha</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jakšamə!</td>
+            <td class="example-word">Kosa</td>
+            <td class="example-word">mon'</td>
+            <td class="example-word">svitər-z'ə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>me.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">It’s cold, where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="53-opener">
+<h4>53</h4>
+<p>Status: alternate; causal marker: <em>ezda GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">bjakšamə-t'</td>
+            <td class="example-word">ezdə</td>
+            <td class="example-word">kosi</td>
+            <td class="example-word">mon'</td>
+            <td class="example-word">svitər-z'ə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>cold-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>me.</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>where.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">It’s cold, where is my sweater?</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Hvor</td>
+            <td class="example-word">er</td>
+            <td class="example-word">genser-en</td>
+            <td class="example-word">min?</td>
+            <td class="example-word">Det</td>
+            <td class="example-word">er</td>
+            <td class="example-word">så kald-t.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>so</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold-</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater? It is so cold.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Polish.html">Polish</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Gdzie</td>
+            <td class="example-word">jest</td>
+            <td class="example-word">mój</td>
+            <td class="example-word">sweter?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>my.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">Where is my sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Russian.html">Russian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Gde</td>
+            <td class="example-word">moj</td>
+            <td class="example-word">sviter?</td>
+            <td class="example-word">Mne</td>
+            <td class="example-word">xolodno.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>my.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]?</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my sweater? I am cold.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing and the caused events are not expressed in a single sentence. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Serbian.html">Serbian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gde</td>
+            <td class="example-word">mi</td>
+            <td class="example-word">je</td>
+            <td class="example-word">džemper</td>
+            <td class="example-word">za</td>
+            <td class="example-word">zim-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>coldness-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Where is my sweater for the cold weather?</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adnominal dependent in the main clause.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Shughni.html">Shughni</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Slovenian.html">Slovenian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Kje</td>
+            <td class="example-word">je</td>
+            <td class="example-word">moj-a</td>
+            <td class="example-word">jopic-a,</td>
+            <td class="example-word">ker</td>
+            <td class="example-word">je</td>
+            <td class="example-word">zunaj</td>
+            <td class="example-word">mrzlo?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>my-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>outside</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold?</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">Where is my sweater, because it is cold outside?</td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Spanish.html">Spanish</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">¿dónde</td>
+            <td class="example-word">está</td>
+            <td class="example-word">mi</td>
+            <td class="example-word">saco</td>
+            <td class="example-word">porque</td>
+            <td class="example-word">hace</td>
+            <td class="example-word">frío?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>jumper(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span>make.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>?</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Where is my sweater because it is cold?</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Swedish.html">Swedish</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Var</td>
+            <td class="example-word">är</td>
+            <td class="example-word">min</td>
+            <td class="example-word">vintertröja?</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>my.</span>
+                <span class="gloss">c</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>winter_sweater</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">Where is my winter sweater?</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the caused event is not explicitly expressed.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Telugu.html">Telugu</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">nā</td>
+            <td class="example-word">sveṭar</td>
+            <td class="example-word">ekkaḍ'</td>
+            <td class="example-word">uṁdi?</td>
+            <td class="example-word">cali-gā</td>
+            <td class="example-word">uṁdi.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>my</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nm</span>
+                <span>?</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold.</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">advz</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nm</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">Where is my sweater? There is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression correspoṁding to the causing event is not a syntactic dependent of the expression correspoṁding to the caused event. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/UdmurtSouth.html">Udmurt (South)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Kytyn</td>
+            <td class="example-word">mynam</td>
+            <td class="example-word">sviter-e,</td>
+            <td class="example-word">mynym</td>
+            <td class="example-word">keźyt.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater-</span>
+                <span class="gloss">p</span>
+                <span>.1</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">i</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>cold</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">Where is my sweater? I am cold.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Ukrainian.html">Ukrainian</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Де</td>
+            <td class="example-word">мій</td>
+            <td class="example-word">світер?</td>
+            <td class="example-word">Холодно.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sweater(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>?</span>
+            </td>
+            <td class="example-gloss">
+                <span> </span>
+                <span class="gloss">i</span>
+                <span>t_is_cold.</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">Where is my sweater? It is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event. </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Urdu.html">Urdu</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word"/>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/YupikSiberian.html">Yupik (Siberian)</a></h3>
+<div class="example-block status-main" id="53-opener">
+<h4>53</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">naːɣu</td>
+            <td class="example-word">maqalʁi</td>
+            <td class="example-word">qaːsli-qa,</td>
+            <td class="example-word">aqɬaʁaχtaː</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>where</span>
+            </td>
+            <td class="example-gloss">
+                <span>warm.</span>
+                <span class="gloss">abs</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>upper-1</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>get_cold+</span>
+                <span class="gloss">ind</span>
+                <span>.</span>
+                <span class="gloss">tr</span>
+                <span>+3</span>
+                <span class="gloss">sg</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">Where is my warm outer [clothes]? It is cold.</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the expression corresponding to the causing event is not a syntactic dependent of the expression corresponding to the caused event.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+    </div>
+    
+    
+</body>
+
+</html>

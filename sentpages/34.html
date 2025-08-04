@@ -1,0 +1,4070 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+                <img src="https://nocacoda.github.io/images/logo_nocacoda_bw.svg" alt="NoCaCoDa logo"
+                    style="height: 45px"></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions.html">
+                <div class="menu-button">Instructions</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>Sentence no. 34&nbsp;&nbsp;<a href="../sentences.html">⮭</a></h2>
+<p><strong>English:</strong> The man told his wife about it <out of> stupidity].</p>
+<p><strong>Type:</strong> ontological</p>
+
+    <script>
+    function toggleAlternateVisibility() {
+        elements = document.getElementsByClassName("status-alternate");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = elements[i].style.display == 'inline-block' ? 'none' : 'inline-block';
+        }
+    }
+    </script>
+    <div>
+    <input type="checkbox" id="alternate_translations" name="alternate" onchange="toggleAlternateVisibility()"><label for="alternate_translations"> Show alternate translations</label>
+    </div>
+    <br/><br/>
+    
+<div class="language-section">
+<h3><a href="../langpages/Adyghe.html">Adyghe</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-djeljaʁe-č̣ʼe</td>
+            <td class="example-word">λ̣ə-m</td>
+            <td class="example-word">a-r</td>
+            <td class="example-word">jə-ŝʷəzə</td>
+            <td class="example-word">f-jə-ʔʷeta-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-stupidity-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-woman</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ben</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-tell-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told his wife about this out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>paje</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-djeljaʁe</td>
+            <td class="example-word">paje</td>
+            <td class="example-word">λ̣ə-m</td>
+            <td class="example-word">a-r</td>
+            <td class="example-word">jə-ŝʷəzə</td>
+            <td class="example-word">f-jə-ʔʷeta-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-stupidity</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-woman</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ben</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-tell-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about this out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>qaxecace</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-djeljaʁe</td>
+            <td class="example-word">qə-xe-č̣ʼə-č̣ʼe</td>
+            <td class="example-word">λ̣ə-m</td>
+            <td class="example-word">a-r</td>
+            <td class="example-word">jə-ŝʷəzə</td>
+            <td class="example-word">f-jə-ʔʷeta-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-stupidity</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">csl</span>
+                <span>-</span>
+                <span class="gloss">loc</span>
+                <span>-go_out-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-woman</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ben</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-tell-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about this out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>qaxecew</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jə-djeljaʁe</td>
+            <td class="example-word">qə-xe-č̣ʼ-ew</td>
+            <td class="example-word">λ̣ə-m</td>
+            <td class="example-word">a-r</td>
+            <td class="example-word">jə-ŝʷəzə</td>
+            <td class="example-word">f-jə-ʔʷeta-ʁ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-stupidity</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">csl</span>
+                <span>-</span>
+                <span class="gloss">loc</span>
+                <span>-go_out-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-woman</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ben</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-tell-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about this out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Albanian.html">Albanian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>nga NOM</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Burr-i</td>
+            <td class="example-word">i</td>
+            <td class="example-word">trego-i</td>
+            <td class="example-word">për</td>
+            <td class="example-word">këtë</td>
+            <td class="example-word">grua-s</td>
+            <td class="example-word">së</td>
+            <td class="example-word">tij</td>
+            <td class="example-word">nga</td>
+            <td class="example-word">budallallëk-u.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">dat</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>it.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">gen</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Arabic.html">Arabic</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>natiidzata GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ʔaχbar-a</td>
+            <td class="example-word">r-radʒul-u</td>
+            <td class="example-word">zawdʒat-a=hu</td>
+            <td class="example-word">ʕan</td>
+            <td class="example-word">haaðaa</td>
+            <td class="example-word">natiidʒat-a</td>
+            <td class="example-word">l-ɣabaaʔ-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>inform.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss"/>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+                <span>=3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>result(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+                <span> </span>
+                <span class="gloss">def</span>
+                <span>-stupidity(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>gan GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ʔaχbar-a</td>
+            <td class="example-word">r-radʒul-u</td>
+            <td class="example-word">zawdʒat-a=hu</td>
+            <td class="example-word">ʕan</td>
+            <td class="example-word">ðaalika</td>
+            <td class="example-word">ʕan</td>
+            <td class="example-word">ɣabaaʔ-i-n</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>inform.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+                <span>=3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>-</span>
+                <span class="gloss">indef</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ArmenianEastern.html">Armenian (Eastern)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>GEN patcarov</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Tġamard-ə</td>
+            <td class="example-word">knoĵ-ə</td>
+            <td class="example-word">ayd</td>
+            <td class="example-word">masin</td>
+            <td class="example-word">patmec‘</td>
+            <td class="example-word">himarut‘yan</td>
+            <td class="example-word">patčaŕ-ov.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman.</span>
+                <span class="gloss">dat</span>
+                <span>-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>relate.</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>cause-</span>
+                <span class="gloss">ins</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it because of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Tġamard-ə</td>
+            <td class="example-word">ayd</td>
+            <td class="example-word">masin</td>
+            <td class="example-word">himarabar</td>
+            <td class="example-word">patmec‘</td>
+            <td class="example-word">knoĵ-ə.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishly</span>
+            </td>
+            <td class="example-gloss">
+                <span>relate.</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman.</span>
+                <span class="gloss">dat</span>
+                <span>-</span>
+                <span class="gloss">def</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man foolishly told his wife about it.</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adverb, not a nominal phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>ABL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Tġamard-ə</td>
+            <td class="example-word">ayd</td>
+            <td class="example-word">masin</td>
+            <td class="example-word">patmec‘</td>
+            <td class="example-word">knoĵ-ə</td>
+            <td class="example-word">himarut‘yun-ic‘.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>relate.</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman.</span>
+                <span class="gloss">dat</span>
+                <span>-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness-</span>
+                <span class="gloss">abl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>man</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">náša</td>
+            <td class="example-word">cúl</td>
+            <td class="example-word">məndi</td>
+            <td class="example-word">hukí-lə</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">šváv-u</td>
+            <td class="example-word">mən</td>
+            <td class="example-word">raxmanúyta</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>all</span>
+            </td>
+            <td class="example-gloss">
+                <span>thing(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell.</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">ls</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>neihbour(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>compassion(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told everything to his neighbor because of the kindness.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Basque.html">Basque</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>ABL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Gizon-a-k</td>
+            <td class="example-word">ergelkeria-tik</td>
+            <td class="example-word">konta-tu</td>
+            <td class="example-word">zion</td>
+            <td class="example-word">hori</td>
+            <td class="example-word">bere</td>
+            <td class="example-word">emazte-a-ri.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">erg</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Belarusian.html">Belarusian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>pa DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">mužčyn-a</td>
+            <td class="example-word">raskaza-ŭ</td>
+            <td class="example-word">gèt-a</td>
+            <td class="example-word">žonc-y</td>
+            <td class="example-word">pa</td>
+            <td class="example-word">durasc-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told everything to his neighbor because of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>z-za GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">mužčyn-a</td>
+            <td class="example-word">raskaza-ŭ</td>
+            <td class="example-word">gèt-a</td>
+            <td class="example-word">žonc-y</td>
+            <td class="example-word">z-za</td>
+            <td class="example-word">durasc-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told everything to his neighbor because of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>praz ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">mužčyn-a</td>
+            <td class="example-word">raskaza-ŭ</td>
+            <td class="example-word">gèt-a</td>
+            <td class="example-word">žonc-y</td>
+            <td class="example-word">praz</td>
+            <td class="example-word">durasc'</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told everything to his neighbor because of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Catalan.html">Catalan</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>per</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">L'</td>
+            <td class="example-word">home</td>
+            <td class="example-word">li</td>
+            <td class="example-word">ho</td>
+            <td class="example-word">va</td>
+            <td class="example-word">dir</td>
+            <td class="example-word">a</td>
+            <td class="example-word">la</td>
+            <td class="example-word">seva</td>
+            <td class="example-word">don-a</td>
+            <td class="example-word">per</td>
+            <td class="example-word">estupides-a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">io</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">do</span>
+            </td>
+            <td class="example-gloss">
+                <span>go.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChineseMandarin.html">Chinese (Mandarin)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>yinwei er</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">zhègè</td>
+            <td class="example-word">nánrén</td>
+            <td class="example-word">yīnwéi</td>
+            <td class="example-word">yúchǔn</td>
+            <td class="example-word">ér</td>
+            <td class="example-word">gàosù-le</td>
+            <td class="example-word">tā</td>
+            <td class="example-word">lǎopó</td>
+            <td class="example-word">zhèjiàn</td>
+            <td class="example-word">shìqíng</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+            <td class="example-gloss">
+                <span>and</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span>he</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">clf</span>
+            </td>
+            <td class="example-gloss">
+                <span>thing </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">arʑɨn</td>
+            <td class="example-word">ɕa</td>
+            <td class="example-word">ɕinʥen</td>
+            <td class="example-word">arəm-nj-a</td>
+            <td class="example-word">xəj-ën</td>
+            <td class="example-word">okmag-ə-ba</td>
+            <td class="example-word">kala-za</td>
+            <td class="example-word">bar-zа</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">post</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">obj</span>
+            </td>
+            <td class="example-gloss">
+                <span>self.</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">cv</span>
+                <span>_</span>
+                <span class="gloss">sim</span>
+            </td>
+            <td class="example-gloss">
+                <span>give-</span>
+                <span class="gloss">cv</span>
+                <span>_</span>
+                <span class="gloss">sim</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/English.html">English</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>out of</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">The man told his wife about it out of stupidity.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Erzya.html">Erzya</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>ejste GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">cera-sʲ</td>
+            <td class="example-word">evtne-sʲ</td>
+            <td class="example-word">ten-de</td>
+            <td class="example-word">ni-nzè</td>
+            <td class="example-word">turtov</td>
+            <td class="example-word">prevtemeči-nʲ</td>
+            <td class="example-word">èjstè</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>kise GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">cёra-sʲ</td>
+            <td class="example-word">ёvtne-sʲ</td>
+            <td class="example-word">te-de</td>
+            <td class="example-word">kozika-stenʲ</td>
+            <td class="example-word">manjavmo-stʲ</td>
+            <td class="example-word">kisè</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>error-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Filipino.html">Filipino</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>dulot ng</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">S&lt;in&gt;ábi</td>
+            <td class="example-word">itó=ng</td>
+            <td class="example-word">míster</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">mísis=niyá</td>
+            <td class="example-word">dúlot=ng</td>
+            <td class="example-word">katangáhan.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>&lt;</span>
+                <span class="gloss">pv</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>&gt;say</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prox</span>
+                <span>=</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>husband</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife=3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>offering=</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/French.html">French</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>par</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">L’</td>
+            <td class="example-word">homme</td>
+            <td class="example-word">l’</td>
+            <td class="example-word">a</td>
+            <td class="example-word">dit</td>
+            <td class="example-word">à</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">femme</td>
+            <td class="example-word">par</td>
+            <td class="example-word">bêtise.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">prf</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/German.html">German</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>aus DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Aus</td>
+            <td class="example-word">Dummheit</td>
+            <td class="example-word">erzähl-te</td>
+            <td class="example-word">der</td>
+            <td class="example-word">Mann</td>
+            <td class="example-word">es</td>
+            <td class="example-word">sein-er</td>
+            <td class="example-word">Frau.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>it</span>
+            </td>
+            <td class="example-gloss">
+                <span>his-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Guro.html">Guro</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>nya</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gɔnɛ</td>
+            <td class="example-word">zàn</td>
+            <td class="example-word">à</td>
+            <td class="example-word">fɩ́</td>
+            <td class="example-word">é</td>
+            <td class="example-word">na</td>
+            <td class="example-word">lɛ</td>
+            <td class="example-word">bòà-wɩ̀</td>
+            <td class="example-word">nya</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>male</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">resp</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nsbj</span>
+            </td>
+            <td class="example-gloss">
+                <span>speak\</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>simple-affair\</span>
+                <span class="gloss">nref</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man told his wife about it out of naivety.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/IndonesianStandard.html">Indonesian (Standard)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">laki-laki</td>
+            <td class="example-word">itu</td>
+            <td class="example-word">bilang</td>
+            <td class="example-word">ke</td>
+            <td class="example-word">istri-nya</td>
+            <td class="example-word">tentang</td>
+            <td class="example-word">itu</td>
+            <td class="example-word">karena</td>
+            <td class="example-word">kecerobohan-nya</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>carelessness-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man told his wife about it out of carelessness.</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the noun phrase used in the nominal causal construction semantically deviates from the one intended by the stimulus sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Italian.html">Italian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>per</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">l’</td>
+            <td class="example-word">uomo</td>
+            <td class="example-word">lo</td>
+            <td class="example-word">ha</td>
+            <td class="example-word">raccontato</td>
+            <td class="example-word">alla</td>
+            <td class="example-word">moglie</td>
+            <td class="example-word">per</td>
+            <td class="example-word">stupidità</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pron</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>to.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Japanese.html">Japanese</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>ABL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Dansei-wa</td>
+            <td class="example-word">tsuma-ni</td>
+            <td class="example-word">oroka-sa-kara</td>
+            <td class="example-word">sono</td>
+            <td class="example-word">koto-o</td>
+            <td class="example-word">it-ta.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">nmlz</span>
+                <span>-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>matter-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Karelian.html">Karelian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kazakh.html">Kazakh</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>COM</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">er1</td>
+            <td class="example-word">adam2</td>
+            <td class="example-word">aqïmaq-tïq-pen</td>
+            <td class="example-word">äyel-i-ne</td>
+            <td class="example-word">ayt-ïp qoy-dï</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man1,2.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid-</span>
+                <span class="gloss">nmlz</span>
+                <span>-</span>
+                <span class="gloss">com</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-</span>
+                <span class="gloss">poss</span>
+                <span>.3-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">cvb</span>
+            </td>
+            <td class="example-gloss">
+                <span>put-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man stupidly told this to his wife.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/KhantyNorthern.html">Khanty (Northern)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>pata</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">iki</td>
+            <td class="example-word">śit</td>
+            <td class="example-word">lup-əs</td>
+            <td class="example-word">utšam-əλ</td>
+            <td class="example-word">păta</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_one</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told &lt;someone&gt; about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khmer.html">Khmer</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>daoj sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">boˀrɒh</td>
+            <td class="example-word">nih</td>
+            <td class="example-word">prap</td>
+            <td class="example-word">nəw</td>
+            <td class="example-word">ˀəvej1</td>
+            <td class="example-word">ˀəvej2</td>
+            <td class="example-word">teaŋ3</td>
+            <td class="example-word">ɒh4</td>
+            <td class="example-word">daoj5</td>
+            <td class="example-word">saː6</td>
+            <td class="example-word">phiəp ləŋʊəŋ khlaw rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>say</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>everything_that_is1,2,3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">daoj</span>
+                <span>_</span>
+                <span class="gloss">sa</span>
+                <span>ː5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nmlz</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid</span>
+            </td>
+            <td class="example-gloss">
+                <span>ignorant</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This man said everything because of his stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>prueh</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">boˀrɒh</td>
+            <td class="example-word">nih</td>
+            <td class="example-word">prap</td>
+            <td class="example-word">nəw</td>
+            <td class="example-word">ˀəvej1</td>
+            <td class="example-word">ˀəvej2</td>
+            <td class="example-word">teaŋ3</td>
+            <td class="example-word">ɒh4</td>
+            <td class="example-word">prʊəh</td>
+            <td class="example-word">phiəp</td>
+            <td class="example-word">ləŋʊəŋ khlaw rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>say</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>everything_that_is1,2,3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nmlz</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid</span>
+            </td>
+            <td class="example-gloss">
+                <span>ignorant</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This man said everything because of his stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>prueh tae</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">boˀrɒh</td>
+            <td class="example-word">nih</td>
+            <td class="example-word">prap</td>
+            <td class="example-word">nəw</td>
+            <td class="example-word">ˀəvej1</td>
+            <td class="example-word">ˀəvej2</td>
+            <td class="example-word">teaŋ3</td>
+            <td class="example-word">ɒh4</td>
+            <td class="example-word">prʊəh5</td>
+            <td class="example-word">tae6</td>
+            <td class="example-word">phiəp ləŋʊəŋ khlaw rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>say</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>everything_that_is1,2,3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+                <span>_</span>
+                <span class="gloss">tae</span>
+                <span>5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nmlz</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid</span>
+            </td>
+            <td class="example-gloss">
+                <span>ignorant</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This man said everything because of his stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>maok pi</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">boˀrɒh</td>
+            <td class="example-word">nih</td>
+            <td class="example-word">prap</td>
+            <td class="example-word">nəw</td>
+            <td class="example-word">ˀəvej1</td>
+            <td class="example-word">ˀəvej2</td>
+            <td class="example-word">teaŋ3</td>
+            <td class="example-word">ɒh4</td>
+            <td class="example-word">maok5</td>
+            <td class="example-word">piː6</td>
+            <td class="example-word">phiəp ləŋʊəŋ khlaw rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>say</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>everything_that_is1,2,3,4</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">maok</span>
+                <span>_</span>
+                <span class="gloss">pi</span>
+                <span>ː5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nmlz</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid</span>
+            </td>
+            <td class="example-gloss">
+                <span>ignorant</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This man said everything because of his stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khwarshi.html">Khwarshi</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>POSS ABL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">χol-i</td>
+            <td class="example-word">ejsa</td>
+            <td class="example-word">ʁina-qo-l</td>
+            <td class="example-word">isu-lo</td>
+            <td class="example-word">ʕadałi-qo-žo</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>husband-</span>
+                <span class="gloss">erg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell\</span>
+                <span class="gloss">aor</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman\</span>
+                <span class="gloss">o</span>
+                <span>-</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman\</span>
+                <span class="gloss">o</span>
+                <span>-</span>
+                <span class="gloss">poss</span>
+                <span>-</span>
+                <span class="gloss">lat</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity.</span>
+                <span class="gloss">o</span>
+                <span>-</span>
+                <span class="gloss">poss</span>
+                <span>-</span>
+                <span class="gloss">abl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The husband told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kumyk.html">Kumyk</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>uchun</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">er1</td>
+            <td class="example-word">giši2</td>
+            <td class="example-word">qʼatyn</td>
+            <td class="example-word">qʼaʁlyqʼ</td>
+            <td class="example-word">učun ajt-t-y</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span>speak-</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told his wife about this out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Latvian.html">Latvian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>GEN del</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vīriet-is</td>
+            <td class="example-word">pastāstīj-a</td>
+            <td class="example-word">t-o</td>
+            <td class="example-word">siev-ai</td>
+            <td class="example-word">muļķīb-as</td>
+            <td class="example-word">dēļ.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because.of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>GEN pec</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vīriet-is</td>
+            <td class="example-word">pastāstīj-a</td>
+            <td class="example-word">t-o</td>
+            <td class="example-word">siev-ai</td>
+            <td class="example-word">muļķīb-as</td>
+            <td class="example-word">pēc.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>after</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lezgian.html">Lezgian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>INEL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ʔid-akaj</td>
+            <td class="example-word">ʔitim-di</td>
+            <td class="example-word">witʃ-in</td>
+            <td class="example-word">pap-az</td>
+            <td class="example-word">ʔaχmaqʔwil-aj</td>
+            <td class="example-word">ʔaqhaj-na</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">sbel</span>
+            </td>
+            <td class="example-gloss">
+                <span>man.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">erg</span>
+            </td>
+            <td class="example-gloss">
+                <span>himself-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">inel</span>
+            </td>
+            <td class="example-gloss">
+                <span>discover-</span>
+                <span class="gloss">aor</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lithuanian.html">Lithuanian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>is GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Žmog-us</td>
+            <td class="example-word">papasakoj-o</td>
+            <td class="example-word">apie</td>
+            <td class="example-word">tai</td>
+            <td class="example-word">žmon-ai</td>
+            <td class="example-word">iš</td>
+            <td class="example-word">kvailum-o.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>person(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>out_of</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>per ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Žmog-us</td>
+            <td class="example-word">papasakoj-o</td>
+            <td class="example-word">apie</td>
+            <td class="example-word">tai</td>
+            <td class="example-word">žmon-ai</td>
+            <td class="example-word">per</td>
+            <td class="example-word">kvailum-ą.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>person(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>through</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it by stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Moksha.html">Moksha</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>CSL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">al'ɛ-s'</td>
+            <td class="example-word">az-əz'ə</td>
+            <td class="example-word">t'ɛ-n'</td>
+            <td class="example-word">ava-ncti</td>
+            <td class="example-word">glupajši-nksə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">o</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">cls</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told his wife this out of foolishness.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mann-en</td>
+            <td class="example-word">var</td>
+            <td class="example-word">så</td>
+            <td class="example-word">dum</td>
+            <td class="example-word">å</td>
+            <td class="example-word">fortelle</td>
+            <td class="example-word">dette</td>
+            <td class="example-word">til</td>
+            <td class="example-word">kon-a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>so</span>
+            </td>
+            <td class="example-gloss">
+                <span>silly</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man was so stupid that he told his wife everything.</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causative meaning is expressed in the predicate.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Polish.html">Polish</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>z GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mężczyzn-a</td>
+            <td class="example-word">powiedzia-ł</td>
+            <td class="example-word">o</td>
+            <td class="example-word">tym</td>
+            <td class="example-word">żon-ie</td>
+            <td class="example-word">z</td>
+            <td class="example-word">głupot-y.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>from2</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Russian.html">Russian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>po DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mužčin-a</td>
+            <td class="example-word">po</td>
+            <td class="example-word">glupost-i</td>
+            <td class="example-word">rasskaza-l</td>
+            <td class="example-word">ob</td>
+            <td class="example-word">èt-om</td>
+            <td class="example-word">svo-ej</td>
+            <td class="example-word">žen-e.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s-</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Serbian.html">Serbian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>iz GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">muškarac</td>
+            <td class="example-word">je</td>
+            <td class="example-word">t-o</td>
+            <td class="example-word">ispriča-o</td>
+            <td class="example-word">žen-i</td>
+            <td class="example-word">iz</td>
+            <td class="example-word">glupost-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>that-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Shughni.html">Shughni</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>az rui</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Yu</td>
+            <td class="example-word">čorik=i</td>
+            <td class="example-word">dar1</td>
+            <td class="example-word">bōra2</td>
+            <td class="example-word">di</td>
+            <td class="example-word">lů-d</td>
+            <td class="example-word">az</td>
+            <td class="example-word">rui</td>
+            <td class="example-word">xu biaqligari.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+                <span>3.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)=3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>regarding1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ptcl</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">el</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">caus</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Slovenian.html">Slovenian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>po LOC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Človek</td>
+            <td class="example-word">je</td>
+            <td class="example-word">po</td>
+            <td class="example-word">neumnost-i</td>
+            <td class="example-word">o</td>
+            <td class="example-word">tem</td>
+            <td class="example-word">poveda-l</td>
+            <td class="example-word">žen-i.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>after</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">loc</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Človek</td>
+            <td class="example-word">je</td>
+            <td class="example-word">naredi-l</td>
+            <td class="example-word">neumnost</td>
+            <td class="example-word">in</td>
+            <td class="example-word">o</td>
+            <td class="example-word">tem</td>
+            <td class="example-word">poveda-l</td>
+            <td class="example-word">svoj-i</td>
+            <td class="example-word">žen-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>make(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>and</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">loc</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s-</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The man did a stupid thing and told his wife about it.</td>
+        </tr>
+        <tr>
+            <td colspan="10" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing and the caused events are not expressed in a single sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Spanish.html">Spanish</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>por</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">el</td>
+            <td class="example-word">hombre</td>
+            <td class="example-word">se</td>
+            <td class="example-word">lo</td>
+            <td class="example-word">cont-ó</td>
+            <td class="example-word">a</td>
+            <td class="example-word">su</td>
+            <td class="example-word">esposa</td>
+            <td class="example-word">por</td>
+            <td class="example-word">estupidez</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">iobj</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">dobj</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Swedish.html">Swedish</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>av</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mann-en</td>
+            <td class="example-word">berätta-de</td>
+            <td class="example-word">det</td>
+            <td class="example-word">för</td>
+            <td class="example-word">frun</td>
+            <td class="example-word">av</td>
+            <td class="example-word">ren</td>
+            <td class="example-word">dumhet.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">c</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span>pure</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told it to his wife out of pure stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Telugu.html">Telugu</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">atanu</td>
+            <td class="example-word">atani</td>
+            <td class="example-word">bhārya-ku</td>
+            <td class="example-word">dāni</td>
+            <td class="example-word">guriṁci</td>
+            <td class="example-word">telivitakkuva-gā</td>
+            <td class="example-word">cepp-āḍu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>that.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolish-</span>
+                <span class="gloss">advz</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man stupidly told his wife about it.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adverb, not a nominal phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>valla</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">atanu</td>
+            <td class="example-word">atani</td>
+            <td class="example-word">bhārya-ku</td>
+            <td class="example-word">telivitakkuvatanaṁ</td>
+            <td class="example-word">valla</td>
+            <td class="example-word">dāni</td>
+            <td class="example-word">guriṁci</td>
+            <td class="example-word">cepp-āḍu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>that.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it because of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>to</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">atanu</td>
+            <td class="example-word">atani</td>
+            <td class="example-word">bhārya-ku</td>
+            <td class="example-word">telivitakkuvatanaṁ</td>
+            <td class="example-word">tō</td>
+            <td class="example-word">dāni</td>
+            <td class="example-word">guriṁci</td>
+            <td class="example-word">cepp-āḍu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>that.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The man told his wife about it by stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/UdmurtSouth.html">Udmurt (South)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vorgoron</td>
+            <td class="example-word">vera-z</td>
+            <td class="example-word">kyšno-jez-ly</td>
+            <td class="example-word">so-je</td>
+            <td class="example-word">malpa-śk-ytek.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>say.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>that-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>think-</span>
+                <span class="gloss">detr</span>
+                <span>-</span>
+                <span class="gloss">car</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told his wife about it without thinking.</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="34-opener">
+<h4>34</h4>
+<p>Status: alternate; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Vorgoron</td>
+            <td class="example-word">vera-z</td>
+            <td class="example-word">kyšno-jez-ly</td>
+            <td class="example-word">so-je</td>
+            <td class="example-word">viźtem-en-yz.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man</span>
+            </td>
+            <td class="example-gloss">
+                <span>say-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>that-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupid-</span>
+                <span class="gloss">ins</span>
+                <span>-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Ukrainian.html">Ukrainian</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>cerez ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Чоловік</td>
+            <td class="example-word">розпові-в</td>
+            <td class="example-word">ц-е</td>
+            <td class="example-word">жінц-і</td>
+            <td class="example-word">через</td>
+            <td class="example-word">сво-ю</td>
+            <td class="example-word">дурниц-ю.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>through</span>
+            </td>
+            <td class="example-gloss">
+                <span>own-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Urdu.html">Urdu</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>ki vajah se</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ādmī</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">apn-ī</td>
+            <td class="example-word">bīvī</td>
+            <td class="example-word">ko</td>
+            <td class="example-word">apn-ī</td>
+            <td class="example-word">himāqat</td>
+            <td class="example-word">kī</td>
+            <td class="example-word">vajah</td>
+            <td class="example-word">se</td>
+            <td class="example-word">yeh</td>
+            <td class="example-word">batā</td>
+            <td class="example-word">diy-ā.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ta</span>
+            </td>
+            <td class="example-gloss">
+                <span>own-</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>wife(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obj</span>
+            </td>
+            <td class="example-gloss">
+                <span>own-</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>foolishness(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>reason(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell</span>
+            </td>
+            <td class="example-gloss">
+                <span>give.</span>
+                <span class="gloss">pfv</span>
+                <span>-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The man told his wife about it out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/YupikSiberian.html">Yupik (Siberian)</a></h3>
+<div class="example-block status-main" id="34-opener">
+<h4>34</h4>
+<p>Status: main; causal marker: <em>antalananan REL</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">juɣə-m</td>
+            <td class="example-word">uŋipamsuɣut-aː</td>
+            <td class="example-word">taːxkən</td>
+            <td class="example-word">nuliː-ni</td>
+            <td class="example-word">naɬu-m</td>
+            <td class="example-word">aŋtala-ŋan</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man-</span>
+                <span class="gloss">rel</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>tell-</span>
+                <span class="gloss">ind</span>
+                <span>.</span>
+                <span class="gloss">tr</span>
+                <span>+3</span>
+                <span class="gloss">sg</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>then</span>
+            </td>
+            <td class="example-gloss">
+                <span>woman-</span>
+                <span class="gloss">refl</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>stupidity-</span>
+                <span class="gloss">rel</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>size-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">rel</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The man told his wife about everything out of stupidity.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+    </div>
+    
+    
+</body>
+
+</html>

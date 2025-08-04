@@ -1,0 +1,3812 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+                <img src="https://nocacoda.github.io/images/logo_nocacoda_bw.svg" alt="NoCaCoDa logo"
+                    style="height: 45px"></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions.html">
+                <div class="menu-button">Instructions</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>Sentence no. 36&nbsp;&nbsp;<a href="../sentences.html">⮭</a></h2>
+<p><strong>English:</strong> The pilot was able to land the plane <thanks to> [his experience].</p>
+<p><strong>Type:</strong> ontological</p>
+
+    <script>
+    function toggleAlternateVisibility() {
+        elements = document.getElementsByClassName("status-alternate");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = elements[i].style.display == 'inline-block' ? 'none' : 'inline-block';
+        }
+    }
+    </script>
+    <div>
+    <input type="checkbox" id="alternate_translations" name="alternate" onchange="toggleAlternateVisibility()"><label for="alternate_translations"> Show alternate translations</label>
+    </div>
+    <br/><br/>
+    
+<div class="language-section">
+<h3><a href="../langpages/Adyghe.html">Adyghe</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>jahatarce</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ljotčʼjəkə-m</td>
+            <td class="example-word">jə-ʔepəʔesenəʁe-m</td>
+            <td class="example-word">jə-hatər-č̣ʼe</td>
+            <td class="example-word">qʷəh.λate-r</td>
+            <td class="example-word">ə-ʁe-ṭəsə-ŝʷə-ʁ.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-skill-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-in-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>sample-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-</span>
+                <span class="gloss">caus</span>
+                <span>-sit_down-</span>
+                <span class="gloss">hbl</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The pilot was able to land the plane thanks to his extensive experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>jaswakece</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ljotčʼjəkə-m</td>
+            <td class="example-word">jə-ʔepəʔesenəʁe-m</td>
+            <td class="example-word">jə-ṣ̂ʷaʁe-č̣ʼe</td>
+            <td class="example-word">qʷəh.λate-r</td>
+            <td class="example-word">ə-ʁe-ṭəsə-ŝʷə-ʁ.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-skill-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>-benefit-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>sample-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-</span>
+                <span class="gloss">caus</span>
+                <span>-sit_down-</span>
+                <span class="gloss">hbl</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The pilot was able to land the plane thanks to his extensive experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Albanian.html">Albanian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>fale DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-i</td>
+            <td class="example-word">arrit-i</td>
+            <td class="example-word">të</td>
+            <td class="example-word">ulë</td>
+            <td class="example-word">aeroplan-in</td>
+            <td class="example-word">falë</td>
+            <td class="example-word">përvoj-ës</td>
+            <td class="example-word">së</td>
+            <td class="example-word">tij.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage-</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">sbjv</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">sbjv</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">gen</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Arabic.html">Arabic</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>bi fadgli GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ʔistatʕaaʕ-a</td>
+            <td class="example-word">tʕ-tʕajjaar-u</td>
+            <td class="example-word">ʔan</td>
+            <td class="example-word">j-uhbitʕ-a</td>
+            <td class="example-word">tʕ-tʕaaʔirat-a</td>
+            <td class="example-word">bi=fadʕl-i</td>
+            <td class="example-word">χibrat-i=hi</td>
+            <td class="example-word">l-kabiir-at-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-pilot(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss"/>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+                <span>-lower.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">ipfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-aircraft(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>with=advantage(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-experience(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>=3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span> </span>
+                <span class="gloss">def</span>
+                <span>-big-</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The pilot was able to land the plane thanks to his big experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ArmenianEastern.html">Armenian (Eastern)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>isnorhiv DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">I1=šnorhiv2</td>
+            <td class="example-word">mec</td>
+            <td class="example-word">p‘orj-i</td>
+            <td class="example-word">ōdač‘u-n</td>
+            <td class="example-word">karoġac‘-av</td>
+            <td class="example-word">vayrēĵk‘</td>
+            <td class="example-word">katar-el.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thanks_to1,2</span>
+            </td>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able-</span>
+                <span class="gloss">aor</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>descent</span>
+            </td>
+            <td class="example-gloss">
+                <span>do-</span>
+                <span class="gloss">inf</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land thanks to his big experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>but</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">náša</td>
+            <td class="example-word">mutv-á-l</td>
+            <td class="example-word">samolét</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">but</td>
+            <td class="example-word">+rába</td>
+            <td class="example-word">hón-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>man(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>put.</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">ss</span>
+                <span>.3</span>
+                <span class="gloss">f</span>
+                <span>-</span>
+                <span class="gloss">ls</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>many</span>
+            </td>
+            <td class="example-gloss">
+                <span>mind-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man landed the plane thanks to his knowledge.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Basque.html">Basque</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>DAT esker</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilotu-a-k</td>
+            <td class="example-word">bere</td>
+            <td class="example-word">esperientzia-ri</td>
+            <td class="example-word">esker</td>
+            <td class="example-word">iza-n</td>
+            <td class="example-word">da</td>
+            <td class="example-word">hegazkin-a</td>
+            <td class="example-word">lurrera-tze-ko</td>
+            <td class="example-word">gai.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">erg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience[</span>
+                <span class="gloss">sg</span>
+                <span>]-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">sg</span>
+                <span>[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">ipfv</span>
+                <span>-</span>
+                <span class="gloss">adj</span>
+            </td>
+            <td class="example-gloss">
+                <span>able</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Belarusian.html">Belarusian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>dzjakujucy DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">zdole-ŭ</td>
+            <td class="example-word">pasadzi-c'</td>
+            <td class="example-word">samalёt</td>
+            <td class="example-word">dzjakujučy</td>
+            <td class="example-word">valik-amu</td>
+            <td class="example-word">vopyt-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man landed the plane thanks to the big experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>z-za GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">zdole-ŭ</td>
+            <td class="example-word">pasadzi-c'</td>
+            <td class="example-word">samalёt</td>
+            <td class="example-word">z-za</td>
+            <td class="example-word">valik-aga</td>
+            <td class="example-word">vopyt-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man landed the plane thanks to the big experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>praz ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">zdole-ŭ</td>
+            <td class="example-word">pasadzi-c'</td>
+            <td class="example-word">samalёt</td>
+            <td class="example-word">praz</td>
+            <td class="example-word">valiki</td>
+            <td class="example-word">vopyt</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The man landed the plane thanks to the big experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Catalan.html">Catalan</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>gracies a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">El</td>
+            <td class="example-word">pilot</td>
+            <td class="example-word">ha</td>
+            <td class="example-word">aconsegu-it</td>
+            <td class="example-word">aterr-ar</td>
+            <td class="example-word">l'</td>
+            <td class="example-word">avió</td>
+            <td class="example-word">gràci-es</td>
+            <td class="example-word">a</td>
+            <td class="example-word">la</td>
+            <td class="example-word">seva</td>
+            <td class="example-word">experienci-a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>achieve-</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>grace(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChineseMandarin.html">Chinese (Mandarin)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>yinwei er</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">zhègè</td>
+            <td class="example-word">jīshī</td>
+            <td class="example-word">yīnwéi</td>
+            <td class="example-word">jīngyàn</td>
+            <td class="example-word">ér</td>
+            <td class="example-word">yǒubànfǎ</td>
+            <td class="example-word">jiàngluò </td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+            <td class="example-gloss">
+                <span>and</span>
+            </td>
+            <td class="example-gloss">
+                <span>have_method</span>
+            </td>
+            <td class="example-gloss">
+                <span>land</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>pergi</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pɨzək</td>
+            <td class="example-word">opɨt</td>
+            <td class="example-word">pergi</td>
+            <td class="example-word">pilot</td>
+            <td class="example-word">xəj-ën</td>
+            <td class="example-word">samolot-nj-a</td>
+            <td class="example-word">lajək</td>
+            <td class="example-word">lart-sa</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">post</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>self.</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft-</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">obj</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">cv</span>
+                <span>_</span>
+                <span class="gloss">sim</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The pilot landed the plane well thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/English.html">English</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>thanks to</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Erzya.html">Erzya</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>kise GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">piloto-sʲ</td>
+            <td class="example-word">ozavt-ɨze</td>
+            <td class="example-word">menelʲvenče-ntʲ</td>
+            <td class="example-word">èsʲ</td>
+            <td class="example-word">teve-nzè</td>
+            <td class="example-word">parste</td>
+            <td class="example-word">soda-zʲ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>plant-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>his</span>
+            </td>
+            <td class="example-gloss">
+                <span>case-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>fine</span>
+            </td>
+            <td class="example-gloss">
+                <span>know-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his great experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Filipino.html">Filipino</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>dahil sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Nai-lapág</td>
+            <td class="example-word">nang=maáyos=ng</td>
+            <td class="example-word">pilóto</td>
+            <td class="example-word">ang=eropláno,</td>
+            <td class="example-word">dáhil</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">karanásan=niyá.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">pv</span>
+                <span>.</span>
+                <span class="gloss">pfv</span>
+                <span>.</span>
+                <span class="gloss">mod</span>
+                <span>-placing_down</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">lk</span>
+                <span>=orderly=</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nom</span>
+                <span>=airplane</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience=3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/French.html">French</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>grace a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Le</td>
+            <td class="example-word">pilote</td>
+            <td class="example-word">a</td>
+            <td class="example-word">su</td>
+            <td class="example-word">faire</td>
+            <td class="example-word">atterrir</td>
+            <td class="example-word">l’</td>
+            <td class="example-word">avion</td>
+            <td class="example-word">grâce</td>
+            <td class="example-word">à</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">grande</td>
+            <td class="example-word">expérience.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>have.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">prf</span>
+            </td>
+            <td class="example-gloss">
+                <span>do.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>big.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/German.html">German</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>auf grund GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Der</td>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">konn-te</td>
+            <td class="example-word">auf</td>
+            <td class="example-word">Grund</td>
+            <td class="example-word">sein-er</td>
+            <td class="example-word">Erfahrung</td>
+            <td class="example-word">das</td>
+            <td class="example-word">Flugzeug</td>
+            <td class="example-word">landen.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>can-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>ground(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">refl</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">n</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Guro.html">Guro</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>le wi ma</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">viɔɔ̀n</td>
+            <td class="example-word">vɔ-zàn</td>
+            <td class="example-word">sɔ́</td>
+            <td class="example-word">à</td>
+            <td class="example-word">zùnlɩ</td>
+            <td class="example-word">nya</td>
+            <td class="example-word">é</td>
+            <td class="example-word">le</td>
+            <td class="example-word">nyáná</td>
+            <td class="example-word">dɔ̀ɔ̀lɩ</td>
+            <td class="example-word">le</td>
+            <td class="example-word">wɩ́</td>
+            <td class="example-word">ma</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>airplane</span>
+            </td>
+            <td class="example-gloss">
+                <span>sow-</span>
+                <span class="gloss">ag</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.liked\</span>
+                <span class="gloss">pfv</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nsbj</span>
+            </td>
+            <td class="example-gloss">
+                <span>go.down-</span>
+                <span class="gloss">ger</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>work</span>
+            </td>
+            <td class="example-gloss">
+                <span>know-</span>
+                <span class="gloss">ger</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>affair</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The pilot was able to land the plane thanks to good knowledge of his job.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/IndonesianStandard.html">Indonesian (Standard)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>karena</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">itu</td>
+            <td class="example-word">mampu</td>
+            <td class="example-word">untuk</td>
+            <td class="example-word">mendaratkan</td>
+            <td class="example-word">pesawat-nya,</td>
+            <td class="example-word">karena</td>
+            <td class="example-word">pengalaman-nya</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>able</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>land</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>because</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Italian.html">Italian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>grazie a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">il</td>
+            <td class="example-word">pilota</td>
+            <td class="example-word">è</td>
+            <td class="example-word">riuscito</td>
+            <td class="example-word">a</td>
+            <td class="example-word">far</td>
+            <td class="example-word">atterrare</td>
+            <td class="example-word">l’</td>
+            <td class="example-word">aereo</td>
+            <td class="example-word">grazie</td>
+            <td class="example-word">alla</td>
+            <td class="example-word">sua</td>
+            <td class="example-word">grande</td>
+            <td class="example-word">esperienza</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>make.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>big.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="14" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Japanese.html">Japanese</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>GEN okage-de</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pairotto-wa</td>
+            <td class="example-word">keiken-no</td>
+            <td class="example-word">okage-de</td>
+            <td class="example-word">chakuriku-deki-ta.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>landing-</span>
+                <span class="gloss">vblz</span>
+                <span>.</span>
+                <span class="gloss">pot</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">The pilot was able to land [the plane] thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>DAT yotte</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pairotto-wa</td>
+            <td class="example-word">keiken-ni</td>
+            <td class="example-word">yotte</td>
+            <td class="example-word">chakuriku-ni</td>
+            <td class="example-word">seikō-sh-ita.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>due</span>
+            </td>
+            <td class="example-gloss">
+                <span>landing-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>success-</span>
+                <span class="gloss">vblz</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">The pilot succeeded in landing [the plane] thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Karelian.html">Karelian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>AD</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">vo-i</td>
+            <td class="example-word">ištu-tta-da</td>
+            <td class="example-word">samal´ota-n</td>
+            <td class="example-word">suura-l</td>
+            <td class="example-word">opita-l</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>can-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>sit-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">ad</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">ad</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane because of his great experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kazakh.html">Kazakh</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>GEN arqasinda</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ušqïš</td>
+            <td class="example-word">öz-i-niŋ</td>
+            <td class="example-word">ülken</td>
+            <td class="example-word">täžiribe-si-niŋ</td>
+            <td class="example-word">arqasïnda</td>
+            <td class="example-word">ušaq-tï</td>
+            <td class="example-word">qondïr-dï</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>own-</span>
+                <span class="gloss">poss</span>
+                <span>.3-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">poss</span>
+                <span>.3-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>due</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his great experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/KhantyNorthern.html">Khanty (Northern)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>pata</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">tɵs</td>
+            <td class="example-word">tăj-t-aλ</td>
+            <td class="example-word">păta</td>
+            <td class="example-word">χop-əλ</td>
+            <td class="example-word">wɛr-s-əλλe</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>skillful</span>
+            </td>
+            <td class="example-gloss">
+                <span>have-</span>
+                <span class="gloss">nfin</span>
+                <span>.</span>
+                <span class="gloss">npst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>boat-</span>
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>make-</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>&gt;</span>
+                <span class="gloss">nsg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="example-translation">He was able to repair the boat due to his skillfulness.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khmer.html">Khmer</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>daoj sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">baɯk2</td>
+            <td class="example-word">bɒː3</td>
+            <td class="example-word">mneak</td>
+            <td class="example-word">ruəc</td>
+            <td class="example-word">piː</td>
+            <td class="example-word">krʊəh4</td>
+            <td class="example-word">thnak5</td>
+            <td class="example-word">cɒːracɒː6</td>
+            <td class="example-word">daoj7</td>
+            <td class="example-word">saː8</td>
+            <td class="example-word">cɒmneh</td>
+            <td class="example-word">cʊmniəɲ pacceakaʔteːh nɯŋ bɒt9 piˀsaot10 rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>driver1,2,3</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">clf</span>
+            </td>
+            <td class="example-gloss">
+                <span>prevent</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>car_crash4,5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">daoj</span>
+                <span>_</span>
+                <span class="gloss">sa</span>
+                <span>ː7,8</span>
+            </td>
+            <td class="example-gloss">
+                <span>knowledge</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_proficient</span>
+            </td>
+            <td class="example-gloss">
+                <span>machinery</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">conj</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience9,10</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The drived prevented a car crash due to his proficiency and experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>prueh</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">baɯk2</td>
+            <td class="example-word">bɒː3</td>
+            <td class="example-word">mneak</td>
+            <td class="example-word">ruəc</td>
+            <td class="example-word">piː</td>
+            <td class="example-word">krʊəh4</td>
+            <td class="example-word">thnak5</td>
+            <td class="example-word">cɒːracɒː6</td>
+            <td class="example-word">prʊəh</td>
+            <td class="example-word">cɒmneh</td>
+            <td class="example-word">cʊmniəɲ</td>
+            <td class="example-word">pacceakaʔteːh nɯŋ bɒt7 piˀsaot8 rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>driver1,2,3</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">clf</span>
+            </td>
+            <td class="example-gloss">
+                <span>prevent</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>car_crash4,5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+            </td>
+            <td class="example-gloss">
+                <span>knowledge</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_proficient</span>
+            </td>
+            <td class="example-gloss">
+                <span>machinery</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">conj</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience7,8</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The drived prevented a car crash due to his proficiency and experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>prueh tae</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">baɯk2</td>
+            <td class="example-word">bɒː3</td>
+            <td class="example-word">mneak</td>
+            <td class="example-word">ruəc</td>
+            <td class="example-word">piː</td>
+            <td class="example-word">krʊəh4</td>
+            <td class="example-word">thnak5</td>
+            <td class="example-word">cɒːracɒː6</td>
+            <td class="example-word">prʊəh7</td>
+            <td class="example-word">tae8</td>
+            <td class="example-word">cɒmneh</td>
+            <td class="example-word">cʊmniəɲ pacceakaʔteːh nɯŋ bɒt9 piˀsaot10 rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>driver1,2,3</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">clf</span>
+            </td>
+            <td class="example-gloss">
+                <span>prevent</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>car_crash4,5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">pr</span>
+                <span>ƱƏ</span>
+                <span class="gloss">h</span>
+                <span>_</span>
+                <span class="gloss">tae</span>
+                <span>7,8</span>
+            </td>
+            <td class="example-gloss">
+                <span>knowledge</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_proficient</span>
+            </td>
+            <td class="example-gloss">
+                <span>machinery</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">conj</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience9,10</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The drived prevented a car crash due to his proficiency and experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>maok pi</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">neak1</td>
+            <td class="example-word">baɯk2</td>
+            <td class="example-word">bɒː3</td>
+            <td class="example-word">mneak</td>
+            <td class="example-word">ruəc</td>
+            <td class="example-word">piː</td>
+            <td class="example-word">krʊəh4</td>
+            <td class="example-word">thnak5</td>
+            <td class="example-word">cɒːracɒː6</td>
+            <td class="example-word">maok7</td>
+            <td class="example-word">piː8</td>
+            <td class="example-word">cɒmneh</td>
+            <td class="example-word">cʊmniəɲ pacceakaʔteːh nɯŋ bɒt9 piˀsaot10 rɔbɒh kɔat</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>driver1,2,3</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">clf</span>
+            </td>
+            <td class="example-gloss">
+                <span>prevent</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>car_crash4,5,6</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">maok</span>
+                <span>_</span>
+                <span class="gloss">pi</span>
+                <span>ː7,8</span>
+            </td>
+            <td class="example-gloss">
+                <span>knowledge</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_proficient</span>
+            </td>
+            <td class="example-gloss">
+                <span>machinery</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">conj</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience9,10</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">The drived prevented a car crash due to his proficiency and experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khwarshi.html">Khwarshi</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">šoper-qo</td>
+            <td class="example-word">tormoz</td>
+            <td class="example-word">gil-a</td>
+            <td class="example-word">l-eq-qa</td>
+            <td class="example-word">iso-qo</td>
+            <td class="example-word">mašina</td>
+            <td class="example-word">k’ʷet’</td>
+            <td class="example-word">miχi-k’-a</td>
+            <td class="example-word">b-eq-qo</td>
+            <td class="example-word">b-eča-zal</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>driver-</span>
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>brake</span>
+            </td>
+            <td class="example-gloss">
+                <span>put-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">iv</span>
+                <span>-small-</span>
+                <span class="gloss">aor</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">iv</span>
+                <span>-small-</span>
+                <span class="gloss">aor</span>
+            </td>
+            <td class="example-gloss">
+                <span>machine</span>
+            </td>
+            <td class="example-gloss">
+                <span>fine</span>
+            </td>
+            <td class="example-gloss">
+                <span>drive-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">vi</span>
+                <span>-be_able-</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">vi</span>
+                <span>-be-</span>
+                <span class="gloss">tmp</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The driver was able to apply the brakes because he knows how to drive a car.</td>
+        </tr>
+        <tr>
+            <td colspan="10" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kumyk.html">Kumyk</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>uchun</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">samolet-nu</td>
+            <td class="example-word">oltu-t-t-u</td>
+            <td class="example-word">jaχšy</td>
+            <td class="example-word">bil-eʁen</td>
+            <td class="example-word">učun'</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>sit-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>good</span>
+            </td>
+            <td class="example-gloss">
+                <span>know-</span>
+                <span class="gloss">pc</span>
+                <span>_</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>because_of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane because he knew (everything) well.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Latvian.html">Latvian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>pateicoties DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-s</td>
+            <td class="example-word">spēj-a</td>
+            <td class="example-word">nosēs-tie-s</td>
+            <td class="example-word">pateic-otie-s</td>
+            <td class="example-word">liel-ajai</td>
+            <td class="example-word">pieredz-ei.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+                <span>-</span>
+                <span class="gloss">rfl</span>
+            </td>
+            <td class="example-gloss">
+                <span>thank-</span>
+                <span class="gloss">cnv</span>
+                <span>-</span>
+                <span class="gloss">rfl</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lezgian.html">Lezgian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">jeke</td>
+            <td class="example-word">teʒriba-∅</td>
+            <td class="example-word">ʔawa-j-wil-aj</td>
+            <td class="example-word">pilotd-iwaj</td>
+            <td class="example-word">samalot-∅</td>
+            <td class="example-word">ʔatsuqʔariz</td>
+            <td class="example-word">xa-na</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">aop</span>
+                <span>-</span>
+                <span class="gloss">abst</span>
+                <span>-</span>
+                <span class="gloss">inel</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">adel</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>land</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">aor</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Because he had a lot of experience, the pilot was able to land the aircraft.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the noun phrase used in the nominal causal construction semantically deviates from the one intended by the stimulus sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lithuanian.html">Lithuanian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>GEN deka</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-as</td>
+            <td class="example-word">sugebėj-o</td>
+            <td class="example-word">nutupd-yti</td>
+            <td class="example-word">lektuv-ą</td>
+            <td class="example-word">didel-ės</td>
+            <td class="example-word">patirti-es</td>
+            <td class="example-word">dėka.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able-</span>
+                <span class="gloss">pst</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Moksha.html">Moksha</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">letčik-s'</td>
+            <td class="example-word">maštəz'</td>
+            <td class="example-word">ozaft-əz'e</td>
+            <td class="example-word">samolet-t'</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>skillfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>plant-</span>
+                <span class="gloss">pst</span>
+                <span>.3.</span>
+                <span class="gloss">o</span>
+                <span>.3</span>
+                <span class="gloss">pl</span>
+                <span>.</span>
+                <span class="gloss">s</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">The pilot skillfully landed the plane.</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adverb, not a nominal phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>takket vare</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-en</td>
+            <td class="example-word">klar-te</td>
+            <td class="example-word">å</td>
+            <td class="example-word">lande</td>
+            <td class="example-word">fly-et</td>
+            <td class="example-word">takket</td>
+            <td class="example-word">være</td>
+            <td class="example-word">sin</td>
+            <td class="example-word">lang-e</td>
+            <td class="example-word">erfaring.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>cope-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>land</span>
+            </td>
+            <td class="example-gloss">
+                <span>aircraft-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thank-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>be</span>
+            </td>
+            <td class="example-gloss">
+                <span>own</span>
+            </td>
+            <td class="example-gloss">
+                <span>long-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The pilot was able to land the plane thanks to his great experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Polish.html">Polish</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>dzieki DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">potrafi-ł</td>
+            <td class="example-word">wylądowa-ć</td>
+            <td class="example-word">dzięki</td>
+            <td class="example-word">swemu</td>
+            <td class="example-word">doświadczen-iu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage-</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Russian.html">Russian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>blagodarja DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">smog</td>
+            <td class="example-word">posadi-tʹ</td>
+            <td class="example-word">samolёt</td>
+            <td class="example-word">blagodarja</td>
+            <td class="example-word">svo-emu</td>
+            <td class="example-word">opyt-u.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>manage(</span>
+                <span class="gloss">pfv</span>
+                <span>).</span>
+                <span class="gloss">pst</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>land(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>one’s-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Serbian.html">Serbian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>zahvaljujuchi DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pilot</td>
+            <td class="example-word">je</td>
+            <td class="example-word">prizemlji-o</td>
+            <td class="example-word">avion</td>
+            <td class="example-word">zahvaljujući</td>
+            <td class="example-word">sv-om</td>
+            <td class="example-word">velik-om</td>
+            <td class="example-word">bogat-om</td>
+            <td class="example-word">iskustv-u</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">ptcp</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+                <span>.</span>
+                <span class="gloss">pron</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss"/>
+            <td class="example-gloss">
+                <span>rich-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span> experience-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The pilot was able to land the plane thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Shughni.html">Shughni</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>az dasti</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Lůčik=i</td>
+            <td class="example-word">vār1</td>
+            <td class="example-word">δo-d2</td>
+            <td class="example-word">samalůt</td>
+            <td class="example-word">nêδdow</td>
+            <td class="example-word">az</td>
+            <td class="example-word">dasti</td>
+            <td class="example-word">xu opyt.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)=3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able1,2-</span>
+                <span class="gloss">pst</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">el</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">caus</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">refl</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">The pilot was able to land the plane as he had solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Slovenian.html">Slovenian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>zaradi GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">je</td>
+            <td class="example-word">zaradi</td>
+            <td class="example-word">izkušenost-i</td>
+            <td class="example-word">uspešno</td>
+            <td class="example-word">prizemlji-l</td>
+            <td class="example-word">letal-o.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>because.of</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>land(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot landed the plane successfully thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>zahvaljujoc DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">je</td>
+            <td class="example-word">zahvaljujoč</td>
+            <td class="example-word">izkušenost-i</td>
+            <td class="example-word">uspešno</td>
+            <td class="example-word">prizemlji-l</td>
+            <td class="example-word">letal-o.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks.to</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>successfully</span>
+            </td>
+            <td class="example-gloss">
+                <span>land(</span>
+                <span class="gloss">pfv</span>
+                <span>)-</span>
+                <span class="gloss">lpt</span>
+                <span>[</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot landed the plane successfully thanks to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Spanish.html">Spanish</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>gracias a</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">el</td>
+            <td class="example-word">piloto</td>
+            <td class="example-word">pud-o</td>
+            <td class="example-word">aterriz-ar</td>
+            <td class="example-word">el</td>
+            <td class="example-word">avión</td>
+            <td class="example-word">gracias</td>
+            <td class="example-word">a</td>
+            <td class="example-word">su</td>
+            <td class="example-word">experiencia</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able_to-</span>
+                <span class="gloss">aor</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Swedish.html">Swedish</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>tack vare</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-en</td>
+            <td class="example-word">lycka-de-s</td>
+            <td class="example-word">landa</td>
+            <td class="example-word">plan-et</td>
+            <td class="example-word">tack</td>
+            <td class="example-word">vare</td>
+            <td class="example-word">sin</td>
+            <td class="example-word">stor-a</td>
+            <td class="example-word">erfarenhet.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">c</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>succeed-</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">pass</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">subj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">refl</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The pilot was able to land the plane thanks to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>pa grund av</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot-en</td>
+            <td class="example-word">lyck-ade-s</td>
+            <td class="example-word">landa</td>
+            <td class="example-word">plan-et</td>
+            <td class="example-word">på</td>
+            <td class="example-word">grund</td>
+            <td class="example-word">av</td>
+            <td class="example-word">sin</td>
+            <td class="example-word">stor-a</td>
+            <td class="example-word">erfarenhet.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">c</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>succeed-</span>
+                <span class="gloss">pst</span>
+                <span>-</span>
+                <span class="gloss">pass</span>
+            </td>
+            <td class="example-gloss">
+                <span>land.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>ground</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">refl</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The pilot was able to land the plane due to his solid experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Telugu.html">Telugu</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>to</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">paileṭ</td>
+            <td class="example-word">vimānānni</td>
+            <td class="example-word">atani</td>
+            <td class="example-word">anubhāvaṁ</td>
+            <td class="example-word">tō</td>
+            <td class="example-word">diṁcagalig-āḍu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>that_man.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>put_down.</span>
+                <span class="gloss">abil</span>
+                <span>.</span>
+                <span class="gloss">pst</span>
+                <span>-3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane due to his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/UdmurtSouth.html">Udmurt (South)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">pukt-i-z</td>
+            <td class="example-word">samoĺot-ze</td>
+            <td class="example-word">badǯ́ym</td>
+            <td class="example-word">opyt-ez</td>
+            <td class="example-word">vań-en.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>put-</span>
+                <span class="gloss">pst</span>
+                <span>-3(</span>
+                <span class="gloss">sg</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>-</span>
+                <span class="gloss">ins</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane as he had solid experience.</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="36-opener">
+<h4>36</h4>
+<p>Status: alternate; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Pilot</td>
+            <td class="example-word">pukt-i-z</td>
+            <td class="example-word">samoĺot-ze</td>
+            <td class="example-word">badǯ́ym</td>
+            <td class="example-word">opyt-ez</td>
+            <td class="example-word">jurtt-em-en.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot</span>
+            </td>
+            <td class="example-gloss">
+                <span>put-</span>
+                <span class="gloss">pst</span>
+                <span>-3(</span>
+                <span class="gloss">sg</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience-</span>
+                <span class="gloss">p</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>help-</span>
+                <span class="gloss">nmz</span>
+                <span>-</span>
+                <span class="gloss">ins</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="example-translation">The pilot was able to land the plane with the help of his solid experience.</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the noun phrase used in the nominal causal construction semantically deviates from the one intended by the stimulus sentence.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Ukrainian.html">Ukrainian</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>zavdjaky DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Пілот</td>
+            <td class="example-word">зміг</td>
+            <td class="example-word">посади-ти</td>
+            <td class="example-word">літак</td>
+            <td class="example-word">завдяки</td>
+            <td class="example-word">велик-ому</td>
+            <td class="example-word">досвід-у.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">pst</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>land-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>plane(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thanks_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>big-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">The pilot was able to land the plane thanks to his great experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Urdu.html">Urdu</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>ki vajah se</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">paileṭ</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">jahāz</td>
+            <td class="example-word">apn-e</td>
+            <td class="example-word">tajurb-e</td>
+            <td class="example-word">kī</td>
+            <td class="example-word">vajah</td>
+            <td class="example-word">se</td>
+            <td class="example-word">leṇḍ</td>
+            <td class="example-word">kiy-ā.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">ta</span>
+            </td>
+            <td class="example-gloss">
+                <span>vessel(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dir</span>
+            </td>
+            <td class="example-gloss">
+                <span>own-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>experience(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>reason(</span>
+                <span class="gloss">f</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>land</span>
+            </td>
+            <td class="example-gloss">
+                <span>do.</span>
+                <span class="gloss">pfv</span>
+                <span>-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">The pilot was able to land the plane because of his experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/YupikSiberian.html">Yupik (Siberian)</a></h3>
+<div class="example-block status-main" id="36-opener">
+<h4>36</h4>
+<p>Status: main; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">təŋastə-m</td>
+            <td class="example-word">aqumə-st-aː</td>
+            <td class="example-word">təŋəxkajuk</td>
+            <td class="example-word">piɬəʁ-minəŋ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>pilot-</span>
+                <span class="gloss">rel</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>sit_down-</span>
+                <span class="gloss">caus</span>
+                <span>-</span>
+                <span class="gloss">ind</span>
+                <span>.</span>
+                <span class="gloss">tr</span>
+                <span>+3</span>
+                <span class="gloss">sg</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>airplane.</span>
+                <span class="gloss">abs</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>experienced-</span>
+                <span class="gloss">refl</span>
+                <span>.</span>
+                <span class="gloss">poss</span>
+                <span>.</span>
+                <span class="gloss">ins</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="example-translation">The man landed the plane thanks to experience.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+    </div>
+    
+    
+</body>
+
+</html>

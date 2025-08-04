@@ -1,0 +1,4228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NoCaCoDa</title>
+    <link rel="stylesheet" href="https://nocacoda.github.io/style.css">
+</head>
+
+<body>
+    <div id="title-div">
+    <div>
+        <h1><a href="https://nocacoda.github.io" style="text-decoration: none; color: black;">
+                <img src="https://nocacoda.github.io/images/logo_nocacoda_bw.svg" alt="NoCaCoDa logo"
+                    style="height: 45px"></a></h1>
+    </div>
+    <div>
+        <a href="https://iling.spb.ru/departements/typology/about.html.ru"><img
+                src="https://www.bivaltyp.info/images/LTIJa.png" alt="Лаборатория типологического изучения языков"></a>
+        &nbsp;&nbsp;
+        <a href="https://iling.spb.ru/index.html.ru"><img src="https://www.bivaltyp.info/images/ili.png"
+                alt="Институт лингвистических исследований РАН"></a>
+    </div>
+</div>
+<div id="menu">
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/index.html">
+            <div class="menu-button">Home</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="project-submenu-button">Project ↓</div>
+        <div class="submenu" id="project-submenu">
+            <a href="https://nocacoda.github.io/project_description.html">
+                <div class="menu-button">Project description</div>
+            </a><a href="https://nocacoda.github.io/questionnaire.html">
+                <div class="menu-button">Questionnaire</div>
+            </a><a href="https://nocacoda.github.io/instructions.html">
+                <div class="menu-button">Instructions</div>
+            </a><a href="https://nocacoda.github.io/team.html">
+                <div class="menu-button">Team</div>
+            </a><a href="https://nocacoda.github.io/publications.html">
+                <div class="menu-button">Publications</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/howtoreadthedata.html">
+            <div class="menu-button">How to read the data</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="languages-submenu-button">Languages ↓</div>
+        <div class="submenu" id="languages-submenu">
+            <a href="https://nocacoda.github.io/langlist.html">
+                <div class="menu-button">List view</div>
+            </a>
+            <a href="https://nocacoda.github.io/map.html">
+                <div class="menu-button">Map view</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/sentences.html">
+            <div class="menu-button">Sentences</div>
+        </a>
+    </div>
+    <div class="menu-element">
+        <div class="menu-button" id="data-submenu-button">Data overview ↓</div>
+        <div class="submenu" id="data-submenu">
+            <a href="https://nocacoda.github.io/markersoverview.html">
+                <div class="menu-button">Markers overview</div>
+            </a>
+            <a href="https://nocacoda.github.io/data_in_one_spreadsheet.html">
+                <div class="menu-button">Data in one spreadsheet</div>
+            </a>
+        </div>
+    </div>
+    <div class="menu-element">
+        <a href="https://nocacoda.github.io/download.html">
+            <div class="menu-button">Download</div>
+        </a>
+    </div>
+</div>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+
+    function hideMenu(id) {
+        let el = byId(id);
+        el.style.display = 'none';
+    }
+
+    function toggle(id) {
+        let el = byId(id);
+        if (el.style.display === 'none' || el.style.display === '') {
+            el.style.display = 'block';
+        } else
+            el.style.display = 'none';
+    }
+
+    function flipMenus(event, id) {
+        // Toggle the target menu; close all other menus.
+        for (const menuId of [
+            'languages-submenu',
+            'data-submenu'
+        ]) {
+            if (menuId !== id) {
+                hideMenu(menuId);
+            }
+        }
+        toggle(id);
+        event.stopPropagation();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        byId('languages-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'languages-submenu');
+        });
+        byId('data-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'data-submenu');
+        });
+        byId('project-submenu-button').addEventListener('click', event => {
+            flipMenus(event, 'project-submenu');
+        });
+
+        // Hide any submenu when the user clicks outside of it.
+        window.onclick = (e) => {
+            let submenus = document.querySelectorAll('.submenu');
+            for (let submenu of submenus) {
+                submenu.style.display = 'none';
+            }
+        }
+
+        // Add current dates
+        let today = new Date(),
+            year = today.getFullYear(),
+            month = today.toLocaleString('default', { month: 'long' }),
+            date = today.getDate();
+        for (let span of document.getElementsByClassName('this-year-span')) {
+            span.textContent = String(year);
+        }
+        for (let span of document.getElementsByClassName('today-span')) {
+            span.textContent = `${month} ${date}, ${year}`;
+        }
+
+    });
+</script>
+    <div id="main">
+        <h2>Sentence no. 54&nbsp;&nbsp;<a href="../sentences.html">⮭</a></h2>
+<p><strong>English:</strong> <Per> [mathematical law], this number cannot be less than one.</p>
+<p><strong>Type:</strong> logical</p>
+
+    <script>
+    function toggleAlternateVisibility() {
+        elements = document.getElementsByClassName("status-alternate");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = elements[i].style.display == 'inline-block' ? 'none' : 'inline-block';
+        }
+    }
+    </script>
+    <div>
+    <input type="checkbox" id="alternate_translations" name="alternate" onchange="toggleAlternateVisibility()"><label for="alternate_translations"> Show alternate translations</label>
+    </div>
+    <br/><br/>
+    
+<div class="language-section">
+<h3><a href="../langpages/Adyghe.html">Adyghe</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">hjəsap–xabze-m-č̣ʼe</td>
+            <td class="example-word">mə</td>
+            <td class="example-word">pčaʁe-r</td>
+            <td class="example-word">zə-m</td>
+            <td class="example-word">nah–mač̣ʼ-ew</td>
+            <td class="example-word">χʷə-n-ew</td>
+            <td class="example-word">ə-λeč̣ʼə-šʼt-ep</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>count-custom-</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>more-small-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">msd</span>
+                <span>-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-be_able-</span>
+                <span class="gloss">fut</span>
+                <span>-</span>
+                <span class="gloss">neg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">This number cannot be less than one due to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>jelatakew</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">hjəsap–xabze-m</td>
+            <td class="example-word">je-λətə-ʁ-ew</td>
+            <td class="example-word">mə</td>
+            <td class="example-word">pčaʁe-r</td>
+            <td class="example-word">zə-m</td>
+            <td class="example-word">nah–mač̣ʼ-ew</td>
+            <td class="example-word">χʷə-n-ew</td>
+            <td class="example-word">ə-λeč̣ʼə-šʼt-ep</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>count-custom-</span>
+                <span class="gloss">obl</span>
+                <span>-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">dat</span>
+                <span>-count-</span>
+                <span class="gloss">res</span>
+                <span>-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">dat</span>
+                <span>-count-</span>
+                <span class="gloss">res</span>
+                <span>-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>more-small-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">msd</span>
+                <span>-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">erg</span>
+                <span>-be_able-</span>
+                <span class="gloss">fut</span>
+                <span>-</span>
+                <span class="gloss">neg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">This number cannot be less than one due to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Albanian.html">Albanian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>me ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Me</td>
+            <td class="example-word">rregull</td>
+            <td class="example-word">matematikor,</td>
+            <td class="example-word">ky</td>
+            <td class="example-word">numër</td>
+            <td class="example-word">nuk</td>
+            <td class="example-word">mund</td>
+            <td class="example-word">të</td>
+            <td class="example-word">jetë</td>
+            <td class="example-word">më</td>
+            <td class="example-word">i</td>
+            <td class="example-word">vogël</td>
+            <td class="example-word">se</td>
+            <td class="example-word">një.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule.</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">nom</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">sbjv</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">sbjv</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">part</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span>little.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="14" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>sipas DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Sipas</td>
+            <td class="example-word">kёtij</td>
+            <td class="example-word">rregull-i</td>
+            <td class="example-word">matematikor,</td>
+            <td class="example-word">ky</td>
+            <td class="example-word">numër</td>
+            <td class="example-word">nuk</td>
+            <td class="example-word">mund</td>
+            <td class="example-word">të</td>
+            <td class="example-word">jetë</td>
+            <td class="example-word">më</td>
+            <td class="example-word">i</td>
+            <td class="example-word">vogël</td>
+            <td class="example-word">se</td>
+            <td class="example-word">një.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">dat</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">nom</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">sbjv</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">sbjv</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">part</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span>little.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="15" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Arabic.html">Arabic</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>bi sababi GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">laa</td>
+            <td class="example-word">j-umkin-u</td>
+            <td class="example-word">li=</td>
+            <td class="example-word">haaðaa</td>
+            <td class="example-word">r-raqm-i</td>
+            <td class="example-word">ʔan</td>
+            <td class="example-word">j-akuun-a</td>
+            <td class="example-word">ʔaqall-a</td>
+            <td class="example-word">min</td>
+            <td class="example-word">waaħid-i-n</td>
+            <td class="example-word">bi=sabab-i</td>
+            <td class="example-word">l-qawaaniin-i r-rijaadʕijj-at-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>-be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">ipfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>for=this</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-number(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+                <span>-be.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">ipfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+            </td>
+            <td class="example-gloss">
+                <span>smaller-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>-</span>
+                <span class="gloss">indef</span>
+            </td>
+            <td class="example-gloss">
+                <span>with=reason(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-law.</span>
+                <span class="gloss">pl</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-mathematical-</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span> </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>hasaba GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ħasab-a</td>
+            <td class="example-word">l-qawaaniin-i</td>
+            <td class="example-word">r-rijaadʕijj-at-i</td>
+            <td class="example-word">laa</td>
+            <td class="example-word">j-umkin-u</td>
+            <td class="example-word">ʔan</td>
+            <td class="example-word">j-akuun-a</td>
+            <td class="example-word">r-raqm-u</td>
+            <td class="example-word">ʔaqall-a</td>
+            <td class="example-word">waaħid-i-n</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>accordance-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-law.</span>
+                <span class="gloss">pl</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-mathematical-</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>-be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">ipfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+                <span>-be.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">ipfv</span>
+                <span>-3</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>-number(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>smaller.</span>
+                <span class="gloss">s</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>-</span>
+                <span class="gloss">acc</span>
+            </td>
+            <td class="example-gloss">
+                <span>than one(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+                <span>-</span>
+                <span class="gloss">indef</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">In accordance with mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ArmenianEastern.html">Armenian (Eastern)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>DAT hamajayn</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mat‘ematikakan</td>
+            <td class="example-word">ōrenk‘-ner-i</td>
+            <td class="example-word">hamajayn</td>
+            <td class="example-word">ays</td>
+            <td class="example-word">t‘iv-ə</td>
+            <td class="example-word">č‘i</td>
+            <td class="example-word">karoġ</td>
+            <td class="example-word">p‘ok‘r</td>
+            <td class="example-word">lin-el</td>
+            <td class="example-word">mek-ic‘.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">pl</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>agreeable</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>.be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>capable</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>GEN himan vra</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Mat‘ematikakan</td>
+            <td class="example-word">ōrenk‘-ner-i</td>
+            <td class="example-word">himan</td>
+            <td class="example-word">vra</td>
+            <td class="example-word">ays</td>
+            <td class="example-word">t‘iv-ə</td>
+            <td class="example-word">č‘i</td>
+            <td class="example-word">karoġ</td>
+            <td class="example-word">p‘ok‘r</td>
+            <td class="example-word">lin-el</td>
+            <td class="example-word">mek-ic‘.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">pl</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>base:</span>
+                <span class="gloss">gen</span>
+                <span>/</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>.be.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>capable</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/AssyrianNeo-Aramaic.html">Assyrian Neo-Aramaic</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>but</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">a</td>
+            <td class="example-word">mənyána</td>
+            <td class="example-word">le</td>
+            <td class="example-word">tápk-a</td>
+            <td class="example-word">+basúrta</td>
+            <td class="example-word">mən</td>
+            <td class="example-word">xá</td>
+            <td class="example-word">ka</td>
+            <td class="example-word">but</td>
+            <td class="example-word">matematiké</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+                <span>1.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>2</span>
+            </td>
+            <td class="example-gloss">
+                <span>happen.</span>
+                <span class="gloss">prs</span>
+                <span>-</span>
+                <span class="gloss">ss</span>
+                <span>.3</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>less.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>about</span>
+            </td>
+            <td class="example-gloss">
+                <span>math(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">This number cannot be less than one, per mathematics.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Basque.html">Basque</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Matematika</td>
+            <td class="example-word">lege-z,</td>
+            <td class="example-word">zenbaki</td>
+            <td class="example-word">hori</td>
+            <td class="example-word">ezin</td>
+            <td class="example-word">da</td>
+            <td class="example-word">bat</td>
+            <td class="example-word">baino</td>
+            <td class="example-word">txiki-ago-a</td>
+            <td class="example-word">iza-n.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">ins</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span>this[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>impossibility</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">aux</span>
+                <span>.</span>
+                <span class="gloss">prs</span>
+                <span>.</span>
+                <span class="gloss">abs</span>
+                <span>3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>one[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>little-</span>
+                <span class="gloss">comp</span>
+                <span>-</span>
+                <span class="gloss">sg</span>
+                <span>[</span>
+                <span class="gloss">abs</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">pfv</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Per mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Belarusian.html">Belarusian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>z pricyny GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gèt-y</td>
+            <td class="example-word">lik</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-a</td>
+            <td class="example-word">by-c'</td>
+            <td class="example-word">menšy</td>
+            <td class="example-word">za</td>
+            <td class="example-word">adzink-y</td>
+            <td class="example-word">z</td>
+            <td class="example-word">pričyn-y</td>
+            <td class="example-word">matèmatyčn-yx</td>
+            <td class="example-word">zakon-aŭ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>smaller</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>cause-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">This number cannot be less than one per mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>pavodle GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gèt-y</td>
+            <td class="example-word">lik</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-a</td>
+            <td class="example-word">by-c'</td>
+            <td class="example-word">menšy</td>
+            <td class="example-word">za</td>
+            <td class="example-word">adzink-y</td>
+            <td class="example-word">pavodle</td>
+            <td class="example-word">matèmatyčn-yx</td>
+            <td class="example-word">zakon-aŭ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>smaller</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This number cannot be less than one per mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Catalan.html">Catalan</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Matemàticament,</td>
+            <td class="example-word">aquest</td>
+            <td class="example-word">número</td>
+            <td class="example-word">no</td>
+            <td class="example-word">pot</td>
+            <td class="example-word">ser</td>
+            <td class="example-word">menor</td>
+            <td class="example-word">d'</td>
+            <td class="example-word">u.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematically,</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>one(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Mathematically this number cannot be less than one.</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adverb, not a nominal phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChineseMandarin.html">Chinese (Mandarin)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>genju</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gēnjù</td>
+            <td class="example-word">shùxué</td>
+            <td class="example-word">dìnglǜ,</td>
+            <td class="example-word">zhègè</td>
+            <td class="example-word">shùzì</td>
+            <td class="example-word">bùnéng</td>
+            <td class="example-word">xiǎoyú</td>
+            <td class="example-word">1 </td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>math</span>
+            </td>
+            <td class="example-gloss">
+                <span>law</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span>not_can</span>
+            </td>
+            <td class="example-gloss">
+                <span>less_than</span>
+            </td>
+            <td class="example-gloss">
+                <span>1 </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">This number cannot be less than one according to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/ChuvashMaloeKarachkino.html">Chuvash (Maloe Karachkino)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>pergi</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">ku</td>
+            <td class="example-word">ʨislo</td>
+            <td class="example-word">përe-ren</td>
+            <td class="example-word">pëʨëk-rek</td>
+            <td class="example-word">pol-i-mes</td>
+            <td class="example-word">matematika</td>
+            <td class="example-word">zakonʲ-ə-zam</td>
+            <td class="example-word">bergi</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>small-</span>
+                <span class="gloss">comp</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">pot</span>
+                <span>-</span>
+                <span class="gloss">neg</span>
+                <span>.</span>
+                <span class="gloss">npst</span>
+                <span>[3</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">p</span>
+                <span>_3-</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">post</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">This number cannot be less than one, per mathematical law.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/English.html">English</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>per</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Erzya.html">Erzya</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>kise GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">te</td>
+            <td class="example-word">čisla-sʲ</td>
+            <td class="example-word">a</td>
+            <td class="example-word">uli</td>
+            <td class="example-word">edinica-dо</td>
+            <td class="example-word">višine</td>
+            <td class="example-word">matematičeskоj</td>
+            <td class="example-word">zakоnо-nʲ</td>
+            <td class="example-word">sila-nʲ</td>
+            <td class="example-word">kisè</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">def</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>force-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">This number cannot be less than one due to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Filipino.html">Filipino</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>ayon sa</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ayon</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">mathematical</td>
+            <td class="example-word">law,</td>
+            <td class="example-word">ang=número-ng</td>
+            <td class="example-word">itó</td>
+            <td class="example-word">ay</td>
+            <td class="example-word">di=maári-ng</td>
+            <td class="example-word">magíng</td>
+            <td class="example-word">mas</td>
+            <td class="example-word">mabábaˀ</td>
+            <td class="example-word">sa</td>
+            <td class="example-word">isá.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">nom</span>
+                <span>=number-</span>
+                <span class="gloss">lk</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prox</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>=able-</span>
+                <span class="gloss">lk</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">av</span>
+                <span>.</span>
+                <span class="gloss">neut</span>
+                <span>[become]</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">deg</span>
+                <span>.</span>
+                <span class="gloss">comp</span>
+            </td>
+            <td class="example-gloss">
+                <span>low</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">According to the mathematical law, this number cannot become less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/French.html">French</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>a cause de</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ce</td>
+            <td class="example-word">nombre</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">peut</td>
+            <td class="example-word">pas</td>
+            <td class="example-word">être</td>
+            <td class="example-word">inférieur</td>
+            <td class="example-word">à</td>
+            <td class="example-word">1</td>
+            <td class="example-word">à</td>
+            <td class="example-word">cause</td>
+            <td class="example-word">des</td>
+            <td class="example-word">règle-s</td>
+            <td class="example-word">de</td>
+            <td class="example-word">mathématique.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>2</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>inferior</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>cause</span>
+            </td>
+            <td class="example-gloss">
+                <span>of.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="15" class="example-translation">This number cannot be less than one per mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/German.html">German</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>zu folge DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ein-er</td>
+            <td class="example-word">mathematisch-en</td>
+            <td class="example-word">Regel-n</td>
+            <td class="example-word">zu</td>
+            <td class="example-word">Folge,</td>
+            <td class="example-word">kann</td>
+            <td class="example-word">dies-e</td>
+            <td class="example-word">Zahl</td>
+            <td class="example-word">nicht</td>
+            <td class="example-word">weniger</td>
+            <td class="example-word">sein</td>
+            <td class="example-word">als</td>
+            <td class="example-word">Eins.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">indf</span>
+                <span>-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematic-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">pl</span>
+                <span>.</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>to</span>
+            </td>
+            <td class="example-gloss">
+                <span>accordance(</span>
+                <span class="gloss">f</span>
+                <span>)</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>]</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">According to mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Guro.html">Guro</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>yalama</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">fɛ</td>
+            <td class="example-word">leé</td>
+            <td class="example-word">bhɛ,</td>
+            <td class="example-word">è</td>
+            <td class="example-word">ká</td>
+            <td class="example-word">sɔ́à</td>
+            <td class="example-word">kɛlɛ̀-lɩ</td>
+            <td class="example-word">nya</td>
+            <td class="example-word">fɛ</td>
+            <td class="example-word">dʋ</td>
+            <td class="example-word">wuò</td>
+            <td class="example-word">lo,</td>
+            <td class="example-word">fɛ</td>
+            <td class="example-word">leé</td>
+            <td class="example-word">jǐbhɔ̂í</td>
+            <td class="example-word">bɛ̀</td>
+            <td class="example-word">le</td>
+            <td class="example-word">beli-dɔ</td>
+            <td class="example-word">wɩ́</td>
+            <td class="example-word">yalama</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>thing</span>
+            </td>
+            <td class="example-gloss">
+                <span>in.front.of</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">art</span>
+            </td>
+            <td class="example-gloss">
+                <span>3</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">sbj</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.liked.</span>
+                <span class="gloss">ipfv</span>
+                <span>\</span>
+                <span class="gloss">ipfv</span>
+                <span>.</span>
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>make-</span>
+                <span class="gloss">ger</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>thing</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+            <td class="example-gloss">
+                <span>under</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>thing</span>
+            </td>
+            <td class="example-gloss">
+                <span>in.front.of</span>
+            </td>
+            <td class="example-gloss">
+                <span>count</span>
+            </td>
+            <td class="example-gloss">
+                <span>way\</span>
+                <span class="gloss">nref</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">poss</span>
+            </td>
+            <td class="example-gloss">
+                <span>command-stop</span>
+            </td>
+            <td class="example-gloss">
+                <span>affair</span>
+            </td>
+            <td class="example-gloss">
+                <span>in_accordance</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="20" class="example-translation">This number can not be bigger than one under the mathematical rules.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/IndonesianStandard.html">Indonesian (Standard)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>secara</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">secara</td>
+            <td class="example-word">matematika,</td>
+            <td class="example-word">angka</td>
+            <td class="example-word">itu</td>
+            <td class="example-word">tidak</td>
+            <td class="example-word">bisa</td>
+            <td class="example-word">kurang</td>
+            <td class="example-word">dari</td>
+            <td class="example-word">satu</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>math</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">By math, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Italian.html">Italian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>secondo</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">secondo</td>
+            <td class="example-word">le</td>
+            <td class="example-word">regole</td>
+            <td class="example-word">matematiche</td>
+            <td class="example-word">questo</td>
+            <td class="example-word">numero</td>
+            <td class="example-word">non</td>
+            <td class="example-word">può</td>
+            <td class="example-word">essere</td>
+            <td class="example-word">minore</td>
+            <td class="example-word">di</td>
+            <td class="example-word">uno</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>minor.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>per</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">per</td>
+            <td class="example-word">le</td>
+            <td class="example-word">regole</td>
+            <td class="example-word">matematiche</td>
+            <td class="example-word">questo</td>
+            <td class="example-word">numero</td>
+            <td class="example-word">non</td>
+            <td class="example-word">può</td>
+            <td class="example-word">essere</td>
+            <td class="example-word">minore</td>
+            <td class="example-word">di</td>
+            <td class="example-word">uno</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>minor.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Japanese.html">Japanese</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>DAT yotte</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Sūgaku-teki</td>
+            <td class="example-word">riron-ni</td>
+            <td class="example-word">yotte</td>
+            <td class="example-word">kono</td>
+            <td class="example-word">sūji-wa</td>
+            <td class="example-word">ichi-miman-ni-wa</td>
+            <td class="example-word">nar-ana-i.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">rel</span>
+            </td>
+            <td class="example-gloss">
+                <span>theory-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>due</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-less-</span>
+                <span class="gloss">dat</span>
+                <span>-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">neg</span>
+                <span>-</span>
+                <span class="gloss">prs</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>GEN tame</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Sūgaku-teki</td>
+            <td class="example-word">hōsoku-no</td>
+            <td class="example-word">tame</td>
+            <td class="example-word">kono</td>
+            <td class="example-word">sūji-wa</td>
+            <td class="example-word">ichi-miman-ni-wa</td>
+            <td class="example-word">nar-ana-i.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">rel</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>cause</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-less-</span>
+                <span class="gloss">dat</span>
+                <span>-</span>
+                <span class="gloss">top</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">neg</span>
+                <span>-</span>
+                <span class="gloss">prs</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Karelian.html">Karelian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kazakh.html">Kazakh</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">bul</td>
+            <td class="example-word">san</td>
+            <td class="example-word">matematiyka-lïq</td>
+            <td class="example-word">bir-lik-ten</td>
+            <td class="example-word">az</td>
+            <td class="example-word">bolmaw</td>
+            <td class="example-word">tiyiz</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">nom</span>
+            </td>
+            <td class="example-gloss">
+                <span>math-</span>
+                <span class="gloss">adv</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">nmlz</span>
+                <span>-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>little</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">neg</span>
+                <span>-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>impossible</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" class="example-translation">Mathematically, this number can not be less than one.</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as an adverb, not a nominal phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/KhantyNorthern.html">Khanty (Northern)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>siren</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">tăm</td>
+            <td class="example-word">čislaj-en</td>
+            <td class="example-word">matematičeskij</td>
+            <td class="example-word">zakon</td>
+            <td class="example-word">śirən</td>
+            <td class="example-word">it</td>
+            <td class="example-word">kińśa</td>
+            <td class="example-word">šiməλ=šək</td>
+            <td class="example-word">ăn</td>
+            <td class="example-word">wɵ-λ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">poss</span>
+                <span>.2</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>little=</span>
+                <span class="gloss">att</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">npst</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">This number cannot be less than one according to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khmer.html">Khmer</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">phlae</td>
+            <td class="example-word">paom</td>
+            <td class="example-word">thleak</td>
+            <td class="example-word">coh</td>
+            <td class="example-word">maok</td>
+            <td class="example-word">dəj</td>
+            <td class="example-word">ta:m</td>
+            <td class="example-word">cbap</td>
+            <td class="example-word">ruːpviˀtjiə</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>fruit</span>
+            </td>
+            <td class="example-gloss">
+                <span>apple</span>
+            </td>
+            <td class="example-gloss">
+                <span>fall</span>
+            </td>
+            <td class="example-gloss">
+                <span>get_down</span>
+            </td>
+            <td class="example-gloss">
+                <span>approach</span>
+            </td>
+            <td class="example-gloss">
+                <span>ground</span>
+            </td>
+            <td class="example-gloss">
+                <span>follow</span>
+            </td>
+            <td class="example-gloss">
+                <span>law</span>
+            </td>
+            <td class="example-gloss">
+                <span>physics</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">The apple falls on the ground according to the law of physics.</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="background-color: rgb(240,240,240); max-width: 300px;">Note: This translation is not included in the database because the causing event is expressed as a dependent clause, not a noun phrase.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Khwarshi.html">Khwarshi</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>SUPER roqana</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">aredu</td>
+            <td class="example-word">čislo</td>
+            <td class="example-word">l-eč-a</td>
+            <td class="example-word">behida-te</td>
+            <td class="example-word">ak’ej</td>
+            <td class="example-word">edinica-ƛ’o-žo</td>
+            <td class="example-word">matematika-lo</td>
+            <td class="example-word">ħisab-ƛ’o</td>
+            <td class="example-word">roq’ana</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span class="gloss">dem</span>
+                <span>.</span>
+                <span class="gloss">prox</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">iv</span>
+                <span>-be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able-</span>
+                <span class="gloss">neg</span>
+                <span>.</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">super</span>
+                <span>-</span>
+                <span class="gloss">trns</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">gen</span>
+                <span>2</span>
+            </td>
+            <td class="example-gloss">
+                <span>rule-</span>
+                <span class="gloss">super</span>
+            </td>
+            <td class="example-gloss">
+                <span>according</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">This number cannot be less than one according to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Kumyk.html">Kumyk</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>gore</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">šu</td>
+            <td class="example-word">sanaw</td>
+            <td class="example-word">bir-den</td>
+            <td class="example-word">az</td>
+            <td class="example-word">bol-ma</td>
+            <td class="example-word">bol-ma-j</td>
+            <td class="example-word">matematika-da-ʁy</td>
+            <td class="example-word">zakon-ʁa</td>
+            <td class="example-word">gʲore</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>big</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">neg</span>
+                <span>-</span>
+                <span class="gloss">npst</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">loc</span>
+                <span>-</span>
+                <span class="gloss">adj</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">dat</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">This number cannot be less than one due to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Latvian.html">Latvian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>GEN del</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Š-is</td>
+            <td class="example-word">skaitl-is</td>
+            <td class="example-word">ne-var</td>
+            <td class="example-word">bū-t</td>
+            <td class="example-word">mazāk-s</td>
+            <td class="example-word">par</td>
+            <td class="example-word">vien-u</td>
+            <td class="example-word">vienīb-u</td>
+            <td class="example-word">matemātik-as</td>
+            <td class="example-word">likum-u</td>
+            <td class="example-word">dēļ.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>-can.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>behind</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>unit-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>because.of</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lezgian.html">Lezgian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>SRDIR</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">matematikad-in</td>
+            <td class="example-word">qanun-r-aldi</td>
+            <td class="example-word">ʔi</td>
+            <td class="example-word">reqem-∅</td>
+            <td class="example-word">sad-alaj</td>
+            <td class="example-word">tʔimil</td>
+            <td class="example-word">xu-n</td>
+            <td class="example-word">mumkin</td>
+            <td class="example-word">tuʃ</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">pl</span>
+                <span>-</span>
+                <span class="gloss">srdir</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">s</span>
+                <span>-</span>
+                <span class="gloss">abs</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">srel</span>
+            </td>
+            <td class="example-gloss">
+                <span>little</span>
+            </td>
+            <td class="example-gloss">
+                <span>become.</span>
+                <span class="gloss">msd</span>
+            </td>
+            <td class="example-gloss">
+                <span>possible</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">neg</span>
+                <span> </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Lithuanian.html">Lithuanian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>pagal ACC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Šis</td>
+            <td class="example-word">skaiči-us</td>
+            <td class="example-word">ne-gal-i</td>
+            <td class="example-word">bū-ti</td>
+            <td class="example-word">maž-esn-is</td>
+            <td class="example-word">už</td>
+            <td class="example-word">vienet-ą</td>
+            <td class="example-word">pagal</td>
+            <td class="example-word">matematik-os</td>
+            <td class="example-word">dėsni-us.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>not-can-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>small-</span>
+                <span class="gloss">comp</span>
+                <span>-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>unit(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">This number cannot be less than one according to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Moksha.html">Moksha</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>koras GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">pravila-t'</td>
+            <td class="example-word">kor'as</td>
+            <td class="example-word">t'ɛ</td>
+            <td class="example-word">čisla-s'</td>
+            <td class="example-word">fka-də</td>
+            <td class="example-word">jomla</td>
+            <td class="example-word">af</td>
+            <td class="example-word">ul-i</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>rule-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">npst</span>
+                <span>.3[</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">According to the rule, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/NorwegianBokmal.html">Norwegian (Bokmål)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>pa grunn av</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Dette</td>
+            <td class="example-word">tallet</td>
+            <td class="example-word">kan</td>
+            <td class="example-word">ikke</td>
+            <td class="example-word">være</td>
+            <td class="example-word">mindre</td>
+            <td class="example-word">enn</td>
+            <td class="example-word">1</td>
+            <td class="example-word">på</td>
+            <td class="example-word">grunn</td>
+            <td class="example-word">av</td>
+            <td class="example-word">matematikk-en-s lover.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can.</span>
+                <span class="gloss">prs</span>
+            </td>
+            <td class="example-gloss">
+                <span>be</span>
+            </td>
+            <td class="example-gloss">
+                <span>less.</span>
+                <span class="gloss">comp</span>
+            </td>
+            <td class="example-gloss">
+                <span>then</span>
+            </td>
+            <td class="example-gloss">
+                <span>1</span>
+            </td>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>soil</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>-</span>
+                <span class="gloss">gen</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">This number cannot be less than one due to mathematical laws.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Polish.html">Polish</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>wedlug GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Według</td>
+            <td class="example-word">praw-a</td>
+            <td class="example-word">matematyczn-ego,</td>
+            <td class="example-word">ta</td>
+            <td class="example-word">liczb-a</td>
+            <td class="example-word">nie</td>
+            <td class="example-word">może</td>
+            <td class="example-word">by-ć</td>
+            <td class="example-word">mniejsz-a</td>
+            <td class="example-word">niż</td>
+            <td class="example-word">jeden.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>zgodnie z INS</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Zgodnie</td>
+            <td class="example-word">z</td>
+            <td class="example-word">praw-em</td>
+            <td class="example-word">matematyk-i,</td>
+            <td class="example-word">ta</td>
+            <td class="example-word">liczb-a</td>
+            <td class="example-word">nie</td>
+            <td class="example-word">może</td>
+            <td class="example-word">by-ć</td>
+            <td class="example-word">mniejsz-a</td>
+            <td class="example-word">niż</td>
+            <td class="example-word">jeden.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>concordantly</span>
+            </td>
+            <td class="example-gloss">
+                <span>with</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">ins</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Russian.html">Russian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>po DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Po</td>
+            <td class="example-word">matematičesk-im</td>
+            <td class="example-word">zakon-am</td>
+            <td class="example-word">èt-o</td>
+            <td class="example-word">čisl-o</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-et</td>
+            <td class="example-word">by-tʹ</td>
+            <td class="example-word">menʹše</td>
+            <td class="example-word">edinic-y.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>by</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able(</span>
+                <span class="gloss">ipfv</span>
+                <span>)-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>unit(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">Per mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>soglasno DAT</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Soglasno</td>
+            <td class="example-word">zakon-am</td>
+            <td class="example-word">matematik-i,</td>
+            <td class="example-word">èt-o</td>
+            <td class="example-word">čisl-o</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-et</td>
+            <td class="example-word">by-tʹ</td>
+            <td class="example-word">menʹše</td>
+            <td class="example-word">edinic-y.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according.to</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">dat</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>maths(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>,</span>
+            </td>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able(</span>
+                <span class="gloss">ipfv</span>
+                <span>)-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>unit(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="example-translation">According to mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+<div class="example-block status-alternate" id="54-opener">
+<h4>54</h4>
+<p>Status: alternate; causal marker: <em>v silu GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Èt-o</td>
+            <td class="example-word">čisl-o</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-et</td>
+            <td class="example-word">by-tʹ</td>
+            <td class="example-word">menʹše</td>
+            <td class="example-word">edinic-y</td>
+            <td class="example-word">v</td>
+            <td class="example-word">sil-u</td>
+            <td class="example-word">matematičesk-ix</td>
+            <td class="example-word">zakon-ov.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able(</span>
+                <span class="gloss">ipfv</span>
+                <span>)-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>unit(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span>force(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This number cannot be less than one, per mathematical law.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Serbian.html">Serbian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>zbog GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">taj</td>
+            <td class="example-word">broj</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">mož-e</td>
+            <td class="example-word">bi-ti</td>
+            <td class="example-word">manji</td>
+            <td class="example-word">od</td>
+            <td class="example-word">jedinic-e</td>
+            <td class="example-word">zbog</td>
+            <td class="example-word">zakon-a</td>
+            <td class="example-word">matematik-e</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>that.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">prep</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematics-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">This number cannot be less than one per mathematical law.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Shughni.html">Shughni</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation"/>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Slovenian.html">Slovenian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>po LOC</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Po</td>
+            <td class="example-word">matematičn-em</td>
+            <td class="example-word">zakon-u</td>
+            <td class="example-word">ta</td>
+            <td class="example-word">številk-a</td>
+            <td class="example-word">ne</td>
+            <td class="example-word">more</td>
+            <td class="example-word">bi-ti</td>
+            <td class="example-word">manj</td>
+            <td class="example-word">kot</td>
+            <td class="example-word">ena.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>after</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">loc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">f</span>
+                <span>.</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>not</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.able(</span>
+                <span class="gloss">ipfv</span>
+                <span>).</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>one(</span>
+                <span class="gloss">f</span>
+                <span>)[</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>]</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Spanish.html">Spanish</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>segun</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">según</td>
+            <td class="example-word">la</td>
+            <td class="example-word">ley</td>
+            <td class="example-word">matemátic-a,</td>
+            <td class="example-word">este</td>
+            <td class="example-word">número</td>
+            <td class="example-word">no</td>
+            <td class="example-word">puede</td>
+            <td class="example-word">ser</td>
+            <td class="example-word">menor</td>
+            <td class="example-word">que</td>
+            <td class="example-word">uno</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>according_to</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">f</span>
+            </td>
+            <td class="example-gloss">
+                <span>this.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be_able.</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be.</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>one(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">According to the mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Swedish.html">Swedish</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>pa grund av</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">På</td>
+            <td class="example-word">grund</td>
+            <td class="example-word">av</td>
+            <td class="example-word">matematisk-a</td>
+            <td class="example-word">lag-ar</td>
+            <td class="example-word">kan</td>
+            <td class="example-word">det</td>
+            <td class="example-word">här</td>
+            <td class="example-word">tal-et</td>
+            <td class="example-word">inte</td>
+            <td class="example-word">var-a</td>
+            <td class="example-word">mindre</td>
+            <td class="example-word">än</td>
+            <td class="example-word">ett.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>on</span>
+            </td>
+            <td class="example-gloss">
+                <span>ground</span>
+            </td>
+            <td class="example-gloss">
+                <span>of</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">indf</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>can</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>here</span>
+            </td>
+            <td class="example-gloss">
+                <span>number-</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less</span>
+            </td>
+            <td class="example-gloss">
+                <span>that</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">def</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="14" class="example-translation">Per mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Telugu.html">Telugu</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>prakaram</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">gaṇitašāstraṁ</td>
+            <td class="example-word">prakāraṁ,</td>
+            <td class="example-word">ī</td>
+            <td class="example-word">saṁkhya</td>
+            <td class="example-word">okaṭi</td>
+            <td class="example-word">kaṁṭē</td>
+            <td class="example-word">takkuva</td>
+            <td class="example-word">uṇḍa-kūḍadu.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to,</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>one</span>
+            </td>
+            <td class="example-gloss">
+                <span>than</span>
+            </td>
+            <td class="example-gloss">
+                <span>inferior</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">proh</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">According to the mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/UdmurtSouth.html">Udmurt (South)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>ADV</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ta</td>
+            <td class="example-word">č́islo</td>
+            <td class="example-word">u-z</td>
+            <td class="example-word">lu-y</td>
+            <td class="example-word">pič́i</td>
+            <td class="example-word">odig-leś</td>
+            <td class="example-word">matematič́eskoj</td>
+            <td class="example-word">zakon-ja.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>.</span>
+                <span class="gloss">fut</span>
+                <span>-3</span>
+            </td>
+            <td class="example-gloss">
+                <span>become-</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>small</span>
+            </td>
+            <td class="example-gloss">
+                <span>one-</span>
+                <span class="gloss">abl</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical</span>
+            </td>
+            <td class="example-gloss">
+                <span>law-</span>
+                <span class="gloss">adv</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="example-translation">Per mathematical law, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Ukrainian.html">Ukrainian</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>v silu GEN</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">Ц-е</td>
+            <td class="example-word">числ-о</td>
+            <td class="example-word">не</td>
+            <td class="example-word">мож-е</td>
+            <td class="example-word">бу-ти</td>
+            <td class="example-word">менш-им</td>
+            <td class="example-word">за</td>
+            <td class="example-word">одиниц-ю</td>
+            <td class="example-word">в</td>
+            <td class="example-word">сил-у</td>
+            <td class="example-word">математичн-их</td>
+            <td class="example-word">закон-ів.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>this-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">n</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">n</span>
+                <span>)-</span>
+                <span class="gloss">nom</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+            </td>
+            <td class="example-gloss">
+                <span>can-</span>
+                <span class="gloss">prs</span>
+                <span>.3</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>be-</span>
+                <span class="gloss">inf</span>
+            </td>
+            <td class="example-gloss">
+                <span>less-</span>
+                <span class="gloss">ins</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>for</span>
+            </td>
+            <td class="example-gloss">
+                <span>digit(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>in</span>
+            </td>
+            <td class="example-gloss">
+                <span>force(</span>
+                <span class="gloss">f</span>
+                <span>)-</span>
+                <span class="gloss">acc</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+            <td class="example-gloss">
+                <span>mathematical-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>)-</span>
+                <span class="gloss">gen</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="example-translation">This number cannot be less than one per mathematical law.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/Urdu.html">Urdu</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>ke mutabiq</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">riyāzī</td>
+            <td class="example-word">ke</td>
+            <td class="example-word">qavānīn</td>
+            <td class="example-word">ke</td>
+            <td class="example-word">mutābiq,</td>
+            <td class="example-word">yah</td>
+            <td class="example-word">nambar</td>
+            <td class="example-word">ek</td>
+            <td class="example-word">se</td>
+            <td class="example-word">kam</td>
+            <td class="example-word">nahīṁ</td>
+            <td class="example-word">ho</td>
+            <td class="example-word">sak-t-ā.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss">
+                <span>mathematics(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">pl</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>law(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">pl</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">adjz</span>
+                <span>.</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>according_to,</span>
+            </td>
+            <td class="example-gloss">
+                <span>this</span>
+            </td>
+            <td class="example-gloss">
+                <span>number(</span>
+                <span class="gloss">m</span>
+                <span>).</span>
+                <span class="gloss">sg</span>
+                <span>.</span>
+                <span class="gloss">dir</span>
+            </td>
+            <td class="example-gloss">
+                <span>one.</span>
+                <span class="gloss">obl</span>
+            </td>
+            <td class="example-gloss">
+                <span>from</span>
+            </td>
+            <td class="example-gloss">
+                <span>little</span>
+            </td>
+            <td class="example-gloss">
+                <span class="gloss">neg</span>
+                <span>2</span>
+            </td>
+            <td class="example-gloss">
+                <span>be</span>
+            </td>
+            <td class="example-gloss">
+                <span>can-</span>
+                <span class="gloss">ipfv</span>
+                <span>-</span>
+                <span class="gloss">m</span>
+                <span>.</span>
+                <span class="gloss">sg</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="13" class="example-translation">According to the mathematical laws, this number cannot be less than one.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+<div class="language-section">
+<h3><a href="../langpages/YupikSiberian.html">Yupik (Siberian)</a></h3>
+<div class="example-block status-main" id="54-opener">
+<h4>54</h4>
+<p>Status: main; causal marker: <em>n.a.</em></p>
+
+<div class="example-info-div">
+    <table class="example" cellspacing="0">
+        <tr>
+            <td class="example-word">n.a.</td>
+        </tr>
+        <tr>
+            <td class="example-gloss"/>
+        </tr>
+        <tr>
+            <td colspan="1" class="example-translation">n.a.</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="background-color: rgb(240,240,240); max-width: 300px;">Note: No satisfactory translation has been obtained.</td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<br/>
+</div>
+    </div>
+    
+    
+</body>
+
+</html>
